@@ -7,11 +7,12 @@
         <v-col cols="10">
           <v-row align="center" justify="center">
             <v-col cols="12" md="6" xl="8">
-              <h1 class="display-2 font-weight-bold mb-4">Vuetify.js</h1>
+              <h1 class="display-2 font-weight-bold mb-4">Luiz Lelis</h1>
+              <h2>Software Enrgineer</h2>
               <h1 class="font-weight-light">
-                Lorem ipsum dolor sit amet consectetur <br />
-                adipisicing elit. Maiores porro voluptatibus <br />
-                delectus nam optio harum!
+                Currently working with back-end development <br />
+                and infrastructure. Main technologies and languages:
+                C#, Python, Go, JavaScript, AWS, Azure Cloud and Azure Devops.
               </h1>
               <v-btn
                 rounded
@@ -21,7 +22,7 @@
                 @click="$vuetify.goTo('#features')"
                 class="mt-5"
               >
-                Saiba mais
+                About me
                 <v-icon class="ml-2">mdi-arrow-down</v-icon>
               </v-btn>
               <div class="video d-flex align-center py-4">
