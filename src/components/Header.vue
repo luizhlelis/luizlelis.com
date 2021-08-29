@@ -12,10 +12,6 @@
           <v-list-item-avatar>
             <img src="@/assets/logo.png" alt="Logo" />
           </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title class="title">Calango</v-list-item-title>
-            <v-list-item-subtitle>WEB</v-list-item-subtitle>
-          </v-list-item-content>
         </v-list-item>
       </v-list>
 
@@ -62,13 +58,13 @@
           <span class="mr-2">Home</span>
         </v-btn>
         <v-btn text @click="$vuetify.goTo('#features')">
-          <span class="mr-2">Sobre</span>
+          <span class="mr-2">About</span>
         </v-btn>
-        <v-btn text @click="$vuetify.goTo('#download')">
-          <span class="mr-2">Download</span>
+        <v-btn text @click="$vuetify.goTo('#posts')">
+          <span class="mr-2">Posts</span>
         </v-btn>
         <v-btn text @click="$vuetify.goTo('#pricing')">
-          <span class="mr-2">Preços</span>
+          <span class="mr-2">Contact</span>
         </v-btn>
       </div>
     </v-app-bar>
@@ -93,8 +89,8 @@ export default {
     isXs: false,
     items: [
       ["mdi-home-outline", "Home", "#hero"],
-      ["mdi-information-outline", "Sobre", "#features"],
-      ["mdi-download-box-outline", "Download", "#download"],
+      ["mdi-information-outline", "About", "#features"],
+      ["mdi-posts-box-outline", "Posts", "#posts"],
       ["mdi-currency-usd", "Preços", "#pricing"]
     ],
   }),

@@ -5,7 +5,7 @@
         <v-col cols="10">
           <v-row align="center" justify="center">
             <v-col cols="12" md="7">
-              <h1 class="font-weight-light display-2">Sobre</h1>
+              <h1 class="font-weight-light display-2">About</h1>
               <h1 class="font-weight-light display-1 mb-3">
                 Lorem ipsum dolor!
               </h1>

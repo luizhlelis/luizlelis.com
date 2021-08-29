@@ -5,7 +5,7 @@
     <v-main class="pt-0">
       <Home />
       <About />
-      <Download />
+      <Posts />
       <Pricing />
     </v-main>
     <v-scale-transition>
@@ -32,7 +32,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import About from "./components/About";
-import Download from "./components/Download";
+import Posts from "./components/Posts";
 import Pricing from "./components/Pricing";
 
 export default {
@@ -44,7 +44,7 @@ export default {
     Footer,
     Home,
     About,
-    Download,
+    Posts,
     Pricing
   },
 
