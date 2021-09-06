@@ -1,7 +1,6 @@
 <template>
   <section id="hero">
     <!-- Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/rainbow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
-    <!-- Photo by <a href="https://unsplash.com/@yogidan2012?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Daniele Levis Pelusi</a> on <a href="https://unsplash.com/s/photos/hero-image-rainbow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
     <v-parallax dark src="@/assets/bgHero.jpg" height="750">
       <v-row align="center" justify="center">
         <v-col cols="10">
