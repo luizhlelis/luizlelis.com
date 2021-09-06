@@ -1,5 +1,5 @@
 <template>
-  <section id="pricing" class="pb-8">
+  <section id="contact" class="pb-8">
     <v-container fluid>
       <v-row align="center" justify="center">
         <v-col cols="10">
@@ -209,7 +209,7 @@ ul {
   z-index: -1;
 }
 
-#pricing {
+#contact {
   z-index: 0;
 }
 

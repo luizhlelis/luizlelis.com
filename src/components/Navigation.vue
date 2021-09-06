@@ -7,16 +7,6 @@
       dark
       src="@/assets/bgDrawer.jpg"
     >
-      <v-list>
-        <v-list-item>
-          <v-list-item-avatar>
-            <img src="@/assets/logo.png" alt="Logo" />
-          </v-list-item-avatar>
-        </v-list-item>
-      </v-list>
-
-      <v-divider />
-
       <v-list dense>
         <v-list-item
           v-for="([icon, text, link], i) in items"
@@ -38,6 +28,7 @@
 
     <v-app-bar
       app
+      height="80vw"
       :color="color"
       :flat="flat"
       dark
@@ -45,7 +36,7 @@
       :class="{ expand: flat }"
     >
       <v-toolbar-title>
-        <v-img src="@/assets/logo.png" max-width="50px" />
+        <Logo />
       </v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon
@@ -55,16 +46,24 @@
       />
       <div v-else>
         <v-btn text @click="$vuetify.goTo('#hero')">
-          <span class="mr-2">Home</span>
+          <span class="mr-2">
+            <h2 style="color: #878e88;">Home</h2>
+          </span>
         </v-btn>
         <v-btn text @click="$vuetify.goTo('#features')">
-          <span class="mr-2">About</span>
+          <span class="mr-2">
+            <h2 style="color: #878e88;">About</h2>
+          </span>
         </v-btn>
         <v-btn text @click="$vuetify.goTo('#posts')">
-          <span class="mr-2">Posts</span>
+          <span class="mr-2">
+            <h2 style="color: #878e88;">Posts</h2>
+          </span>
         </v-btn>
-        <v-btn text @click="$vuetify.goTo('#pricing')">
-          <span class="mr-2">Contact</span>
+        <v-btn text @click="$vuetify.goTo('#contact')">
+          <span class="mr-2">
+            <h2 style="color: #878e88;">Contact</h2>
+          </span>
         </v-btn>
       </div>
     </v-app-bar>
@@ -77,13 +76,20 @@
 }
 
 .expand {
-  height: 80px !important;
+  height: 80px;
   padding-top: 10px;
 }
 </style>
 
 <script>
+import Logo from "./Logo";
+
 export default {
+
+  components: {
+    Logo
+  },
+
   data: () => ({
     drawer: null,
     isXs: false,
@@ -91,7 +97,7 @@ export default {
       ["mdi-home-outline", "Home", "#hero"],
       ["mdi-information-outline", "About", "#features"],
       ["mdi-posts-box-outline", "Posts", "#posts"],
-      ["mdi-currency-usd", "Preços", "#pricing"]
+      ["mdi-currency-usd", "Preços", "#contact"]
     ],
   }),
   props: {

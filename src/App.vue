@@ -1,12 +1,12 @@
 <template>
   <!-- <Waterfall /> -->
   <v-app>
-    <Header :color="color" :flat="flat" />
+    <Navigation :color="color" :flat="flat" />
     <v-main class="pt-0">
       <Home />
       <About />
       <Posts />
-      <Pricing />
+      <Contact />
     </v-main>
     <v-scale-transition>
       <v-btn
@@ -28,24 +28,24 @@
 
 <script>
 // import Waterfall from './components/Waterfall.vue'
-import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import About from "./components/About";
 import Posts from "./components/Posts";
-import Pricing from "./components/Pricing";
+import Contact from "./components/Contact";
 
 export default {
   name: 'App',
 
   components: {
     // Waterfall,
-    Header,
+    Navigation,
     Footer,
     Home,
     About,
     Posts,
-    Pricing
+    Contact
   },
 
   data: () => ({
@@ -88,7 +88,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Outline&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Roboto&display=swap');
 
 html, body {
   font-family: 'Roboto', sans-serif;
@@ -103,10 +103,6 @@ h1 {
 h2 {
   font-family: 'Bungee', cursive;
   font-size: 2vw;
-}
-
-logo {
-  font-family: 'Bungee Outline', cursive;
 }
 
 #app {
