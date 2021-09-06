@@ -88,6 +88,31 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Outline&family=Roboto&display=swap');
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5vw
+}
+
+h1 {
+  font-family: 'Bungee', cursive;
+  font-size: 4vw;
+}
+
+h2 {
+  font-family: 'Bungee', cursive;
+  font-size: 2vw;
+}
+
+logo {
+  font-family: 'Bungee Outline', cursive;
+}
+
+#app {
+  font-family: 'Roboto', sans-serif;
+}
+
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

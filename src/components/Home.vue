@@ -7,13 +7,14 @@
         <v-col cols="10">
           <v-row align="center" justify="center">
             <v-col cols="12" md="6" xl="8">
-              <h1 class="display-2 font-weight-bold mb-4">Luiz Lelis</h1>
+              <h1>Luiz Lelis</h1>
               <h2>Software Enrgineer</h2>
-              <h1 class="font-weight-light">
-                Currently working with back-end development <br />
+              <body>
+                Currently working with back-end development
                 and infrastructure. Main technologies and languages:
-                C#, Python, Go, JavaScript, AWS, Azure Cloud and Azure Devops.
-              </h1>
+                C#, Python, Go, JavaScript, AWS, Azure Cloud and
+                Azure Devops.
+              </body>
               <v-btn
                 rounded
                 outlined
