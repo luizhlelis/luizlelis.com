@@ -105,6 +105,11 @@ h2 {
   font-size: 2vw;
 }
 
+h3 {
+  font-family: 'Bungee', cursive;
+  font-size: 1.3vw;
+}
+
 #app {
   font-family: 'Roboto', sans-serif;
 }
