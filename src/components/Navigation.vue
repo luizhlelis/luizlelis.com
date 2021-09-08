@@ -6,6 +6,7 @@
       temporary
       dark
       src="@/assets/navigation.png"
+      class=""
     >
       <v-list>
         <v-list-item>
@@ -28,6 +29,17 @@
           <v-list-item-content>
             <v-list-item-title class="subtitile-1">
               <h2 class="text-border-black">{{text}}</h2>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
+          <v-list-item-icon class="justify-center">
+            <v-icon v-show="$vuetify.theme.isDark" class="text-border-black">mdi-lightbulb-off</v-icon>
+            <v-icon v-show="!$vuetify.theme.isDark" class="text-border-black">mdi-lightbulb-on</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title class="subtitile-1">
+              <h2 class="text-border-black">Change Theme</h2>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -73,10 +85,10 @@
             <h3 class="accent--text text-border-white">Contact</h3>
           </span>
         </v-btn>
-        <v-btn text v-on:click="this.$vuetify.theme.isDark=!this.$vuetify.theme.isDark">
+        <v-btn text v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
           <span class="mr-2">
-            <v-icon v-show="this.$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-off</v-icon>
-            <v-icon v-show="!this.$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-off</v-icon>
+            <v-icon v-show="$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-off</v-icon>
+            <v-icon v-show="!$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-on</v-icon>
           </span>
         </v-btn>
       </div>
@@ -142,7 +154,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.$vuetify.theme.isDark);
     this.onResize();
     window.addEventListener("resize", this.onResize, { passive: true });
   },
