@@ -65,7 +65,7 @@
                     />
                   </svg>
                 </a>
-                <p class="subheading ml-2 mb-0">Assista o vídeo</p>
+                <p class="subheading ml-2 mb-0">Tech Talk (PT-BR)</p>
               </div>
             </v-col>
             <v-col cols="12" md="6" xl="4" class="hidden-sm-and-down"> </v-col>
@@ -137,7 +137,7 @@ export default {
   data() {
     return {
       dialog: false,
-      videoId: "i8IvvHJssWE",
+      videoId: "jCjPL_80bpA",
       features: [
         {
           img: require("@/assets/icon2.png"),
