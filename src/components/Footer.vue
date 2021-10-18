@@ -14,15 +14,15 @@
         </v-btn>
       </v-card-text>
 
-      <v-card-text class="white--text pt-0">
+      <!-- <v-card-text class="white--text pt-0">
         Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.
         Mauris cursus commodo interdum.
-      </v-card-text>
+      </v-card-text> -->
 
       <v-divider></v-divider>
 
       <v-card-text class="white--text">
-        {{ new Date().getFullYear() }} — <strong>Bla Bla</strong>
+        {{ new Date().getFullYear() }} — <strong>Luiz Lelis</strong>
       </v-card-text>
     </v-card>
   </v-footer>
@@ -39,20 +39,16 @@ export default {
   data: () => ({
     icons: [
       {
-        text: "mdi-facebook",
-        link: "",
-      },
-      {
-        text: "mdi-twitter",
-        link: "",
+        text: "mdi-github",
+        link: "https://github.com/luizhlelis",
       },
       {
         text: "mdi-linkedin",
-        link: "",
+        link: "https://linkedin.com/in/luizhlelis",
       },
       {
-        text: "mdi-instagram",
-        link: "https://instagram.com/joabson_arley/",
+        text: "mdi-dev-to",
+        link: "https://dev.to/luizhlelis",
       },
     ],
   }),
