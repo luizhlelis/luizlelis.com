@@ -97,6 +97,9 @@
                 <v-card
                   class="card"
                   shaped
+                  :link="true"
+                  :href="feature.link"
+                  target="_blank"
                   :elevation="hover ? 10 : 4"
                   :class="{ up: hover }"
                 >
@@ -140,19 +143,22 @@ export default {
       videoId: "jCjPL_80bpA",
       features: [
         {
-          img: require("@/assets/icon2.png"),
-          title: "Design Limpo",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          img: require("@/assets/blog-image-typesense.png"),
+          title: "dev.to",
+          text: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
+          link: "https://dev.to/luizhlelis/typesense-search-engine-an-easier-to-use-alternative-to-elasticsearch-33dg"
         },
         {
-          img: require("@/assets/icon1.png"),
-          title: "Dados Seguros",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          img: require("@/assets/blog-image-trace.png"),
+          title: "dev.to",
+          text: "Using W3C Trace Context standard in distributed tracing",
+          link: "https://dev.to/luizhlelis/using-w3c-trace-context-standard-in-distributed-tracing-3743"
         },
         {
-          img: require("@/assets/icon3.png"),
-          title: "Código Aberto",
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          img: require("@/assets/blog-image-integration-test.png"),
+          title: "snippets",
+          text: "How to Run Integration Tests Using Docker Compose and .NET 5",
+          link: "https://blog.avenuecode.com/how-to-run-integration-tests-using-docker-compose-and-.net-5"
         },
       ],
     };
