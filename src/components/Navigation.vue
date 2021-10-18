@@ -70,17 +70,17 @@
             <h3 class="accent--text text-border-white">Home</h3>
           </span>
         </v-btn>
-        <v-btn text @click="$vuetify.goTo('#about')">
+        <v-btn v-show="false" text @click="$vuetify.goTo('#about')">
           <span class="mr-2">
             <h3 class="accent--text text-border-white">About</h3>
           </span>
         </v-btn>
-        <v-btn text @click="$vuetify.goTo('#posts')">
+        <v-btn text v-show="false" @click="$vuetify.goTo('#posts')">
           <span class="mr-2">
             <h3 class="accent--text text-border-white">Posts</h3>
           </span>
         </v-btn>
-        <v-btn text @click="$vuetify.goTo('#contact')">
+        <v-btn text v-show="false" @click="$vuetify.goTo('#contact')">
           <span class="mr-2">
             <h3 class="accent--text text-border-white">Contact</h3>
           </span>
@@ -129,9 +129,9 @@ export default {
     isXs: false,
     items: [
       ["mdi-home", "Home", "#hero"],
-      ["mdi-information-outline", "About", "#about"],
-      ["mdi-book-edit-outline", "Posts", "#posts"],
-      ["mdi-email-outline", "Contact", "#contact"]
+      // ["mdi-information-outline", "About", "#about"],
+      // ["mdi-book-edit-outline", "Posts", "#posts"],
+      // ["mdi-email-outline", "Contact", "#contact"]
     ],
   }),
   props: {

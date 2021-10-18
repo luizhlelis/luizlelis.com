@@ -4,9 +4,9 @@
     <Navigation :color="color" :flat="flat" />
     <v-main class="pt-0">
       <Home />
-      <About />
-      <Posts />
-      <Contact />
+      <About v-show="false" />
+      <Posts v-show="false" />
+      <Contact v-show="false" />
     </v-main>
     <v-scale-transition>
       <v-btn
