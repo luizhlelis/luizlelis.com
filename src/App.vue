@@ -4,9 +4,9 @@
     <Navigation :color="color" :flat="flat" />
     <v-main class="pt-0">
       <Home />
-      <About v-show="false" />
+      <!-- <About v-show="false" />
       <Posts v-show="false" />
-      <Contact v-show="false" />
+      <Contact v-show="false" /> -->
     </v-main>
     <v-scale-transition>
       <v-btn
@@ -31,9 +31,9 @@
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
-import About from "./components/About";
-import Posts from "./components/Posts";
-import Contact from "./components/Contact";
+// import About from "./components/About";
+// import Posts from "./components/Posts";
+// import Contact from "./components/Contact";
 
 export default {
   name: 'App',
@@ -43,9 +43,9 @@ export default {
     Navigation,
     Footer,
     Home,
-    About,
-    Posts,
-    Contact
+    // About,
+    // Posts,
+    // Contact
   },
 
   data: () => ({
