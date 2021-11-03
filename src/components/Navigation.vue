@@ -28,7 +28,7 @@
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title class="subtitile-1">
-              <h2 class="text-border-black">{{text}}</h2>
+              <h2 :class="fontSizeH2" class="text-border-black navigation-item">{{text}}</h2>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -39,7 +39,7 @@
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title class="subtitile-1">
-              <h2 class="text-border-black">Change Theme</h2>
+              <h2 :class="fontSizeH2" class="text-border-black navigation-item">Change Theme</h2>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -53,6 +53,7 @@
       :flat="flat"
       dark
       class="px-15"
+      :style="headerPaddingSize"
       :class="{ expand: flat }"
     >
       <v-toolbar-title>
@@ -101,6 +102,12 @@
   transition: 0.6s;
 }
 
+.navigation-item{
+  height: 20px;
+  align-items: center;
+  display: flex;
+}
+
 .expand {
   height: 80px;
   padding-top: 10px;
@@ -112,6 +119,26 @@
 
 .text-border-black {
   text-shadow: 0.7px 0 0 #ff0266, -0.7px 0 0 #ff0266, 0 0.7px 0 #ff0266, 0 -0.7px 0 #ff0266, 0.7px 0.7px #ff0266, -0.7px -0.7px 0 #ff0266, 0.7px -0.7px 0 #ff0266, -0.7px 0.7px 0 #ff0266;
+}
+
+.font-h2-xs {
+  font-size: 4vw;
+}
+
+.font-h2-sm {
+  font-size: 2vw;
+}
+
+.font-h2-md {
+ font-size: 1.5vw;
+}
+
+.font-h2-lg {
+ font-size: 1.5vw;
+}
+
+.font-h2-xl {
+ font-size: 1.5vw;
 }
 </style>
 
@@ -156,6 +183,24 @@ export default {
   mounted() {
     this.onResize();
     window.addEventListener("resize", this.onResize, { passive: true });
+  },
+  computed: {
+    fontSizeH2 () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 'font-h2-xs'
+        case 'sm': return 'font-h2-sm'
+        case 'md': return 'font-h2-md'
+        case 'lg': return 'font-h2-lg'
+        case 'xl': return 'font-h2-xl'
+      }
+      return ''
+    },
+    headerPaddingSize () {
+      if (this.$vuetify.breakpoint.name === 'xs' || this.$vuetify.breakpoint.name === 'sm') {
+        return 'padding-left: 20px !important; padding-right: 20px !important;'
+      }
+      return ''
+    },
   },
 };
 </script>

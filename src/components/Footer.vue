@@ -21,7 +21,7 @@
 
       <v-divider></v-divider>
 
-      <v-card-text class="white--text">
+      <v-card-text :class="fontSizeBody" class="white--text">
         {{ new Date().getFullYear() }} — <strong>Luiz Lelis</strong>
       </v-card-text>
     </v-card>
@@ -50,7 +50,23 @@ export default {
         text: "mdi-dev-to",
         link: "https://dev.to/luizhlelis",
       },
+      {
+        text: "mdi-stack-overflow",
+        link: "https://stackoverflow.com/users/5610329/luiz-lelis",
+      },
     ],
   }),
+  computed: {
+    fontSizeBody () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 'font-body-xs'
+        case 'sm': return 'font-body-sm'
+        case 'md': return 'font-body-md'
+        case 'lg': return 'font-body-lg'
+        case 'xl': return 'font-body-xl'
+      }
+      return ''
+    }
+  },
 };
 </script>

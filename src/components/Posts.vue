@@ -30,7 +30,7 @@
 
 <style scoped>
 #posts {
-  background-image: url("~@/assets/bgPosts.png");
+  /* background-image: url("~@/assets/bgPosts.png"); */
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
