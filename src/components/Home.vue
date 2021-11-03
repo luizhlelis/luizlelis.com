@@ -6,9 +6,9 @@
         <v-col cols="10">
           <v-row align="center" justify="center">
             <v-col cols="12" md="6" xl="8">
-              <h1>Luiz Lelis</h1>
-              <h2>Software Enrgineer</h2>
-              <body>
+              <h1 :class="fontSizeH1">Luiz Lelis</h1>
+              <h2 :class="fontSizeH2">Software Engineer</h2>
+              <body :class="fontSizeBody">
                 Currently working with back-end development
                 and infrastructure. Main technologies and languages:
                 C#, Python, Go, JavaScript, AWS, Azure Cloud and
@@ -22,7 +22,9 @@
                 @click="$vuetify.goTo('#features')"
                 class="mt-5"
               >
-                About me
+                <body :class="fontSizeBody">
+                  About me
+                </body>
                 <v-icon class="ml-2">mdi-arrow-down</v-icon>
               </v-btn>
               <div class="video d-flex align-center py-4">
@@ -65,7 +67,9 @@
                     />
                   </svg>
                 </a>
-                <p class="subheading ml-2 mb-0">Tech Talk (PT-BR)</p>
+                <p class="subheading ml-2 mb-0" :class="fontSizeBody">
+                  Tech Talk (PT-BR)
+                </p>
               </div>
             </v-col>
             <v-col cols="12" md="6" xl="4" class="hidden-sm-and-down"> </v-col>
@@ -102,6 +106,7 @@
                   target="_blank"
                   :elevation="hover ? 10 : 4"
                   :class="{ up: hover }"
+                  style="vertical-align: middle; display: table-cell; height: 250px;"
                 >
                   <v-img
                     :src="feature.img"
@@ -109,10 +114,8 @@
                     class="d-block ml-auto mr-auto"
                     :class="{ 'zoom-efect': hover }"
                   ></v-img>
-                  <h1 class="font-weight-regular">{{ feature.title }}</h1>
-                  <h4 class="font-weight-regular subtitle-1">
-                    {{ feature.text }}
-                  </h4>
+                  <h1 :class="fontSizeH2" class="font-weight-regular">{{ feature.title }}</h1>
+                  <h4 :class="fontSizeBody" class="font-weight-regular">{{ feature.text }}</h4>
                 </v-card>
               </v-hover>
             </v-col>
@@ -125,6 +128,8 @@
         <youtube
           :video-id="videoId"
           :host="'https://youtube.com'"
+          :player-height="heightPlayerSize"
+          :player-width="widthPlayerSize"
         ></youtube>
       </v-card>
     </v-dialog>
@@ -187,6 +192,53 @@ export default {
     //   this.player.pauseVideo();
     // },
   },
+  computed: {
+    fontSizeH1 () {
+      console.log(this.$vuetify.breakpoint.name)
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 'font-h1-xs'
+        case 'sm': return 'font-h1-sm'
+        case 'md': return 'font-h1-md'
+        case 'lg': return 'font-h1-lg'
+        case 'xl': return 'font-h1-xl'
+      }
+      return ''
+    },
+    fontSizeH2 () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 'font-h2-xs'
+        case 'sm': return 'font-h2-sm'
+        case 'md': return 'font-h2-md'
+        case 'lg': return 'font-h2-lg'
+        case 'xl': return 'font-h2-xl'
+      }
+      return ''
+    },
+    fontSizeBody () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 'font-body-xs'
+        case 'sm': return 'font-body-sm'
+        case 'md': return 'font-body-md'
+        case 'lg': return 'font-body-lg'
+        case 'xl': return 'font-body-xl'
+      }
+      return ''
+    },
+    heightPlayerSize () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return this.$vuetify.breakpoint.height - 75
+        case 'sm': return this.$vuetify.breakpoint.height - 110
+      }
+      return 360
+    },
+    widthPlayerSize () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return this.$vuetify.breakpoint.width - 50
+        case 'sm': return this.$vuetify.breakpoint.width - 130
+      }
+      return 640
+    },
+  },
 };
 </script>
 
@@ -247,6 +299,66 @@ export default {
 </style>
 
 <style>
+.font-h1-xs {
+  font-size: 8vw;
+}
+
+.font-h1-sm {
+  font-size: 6vw;
+}
+
+.font-h1-md {
+ font-size: 4vw;
+}
+
+.font-h1-lg {
+ font-size: 4vw;
+}
+
+.font-h1-xl {
+ font-size: 4vw;
+}
+
+.font-h2-xs {
+  font-size: 5vw;
+}
+
+.font-h2-sm {
+  font-size: 4vw;
+}
+
+.font-h2-md {
+ font-size: 2vw;
+}
+
+.font-h2-lg {
+ font-size: 2vw;
+}
+
+.font-h2-xl {
+ font-size: 2vw;
+}
+
+.font-body-xs {
+  font-size: 4vw;
+}
+
+.font-body-sm {
+  font-size: 3.5vw;
+}
+
+.font-body-md {
+ font-size: 1.5vw;
+}
+
+.font-body-lg {
+ font-size: 1.5vw;
+}
+
+.font-body-xl {
+ font-size: 1.5vw;
+}
+
 .btn-play {
   transition: 0.2s;
 }
