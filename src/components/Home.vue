@@ -1,12 +1,12 @@
 <template>
   <section id="hero">
     <!-- Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/rainbow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
-    <v-parallax dark v-bind:src="heroImg" height="750">
+    <v-parallax dark v-bind:src="require('@/assets/bg-hero-dark-'+$vuetify.theme.isDark+'.jpg')" height="750">
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="center">
             <v-col cols="12" md="6" xl="8">
-              <h1 :class="fontSizeH1">Luiz Lelis</h1>
+              <h1 :style="{color: $vuetify.theme.isDark}" :class="fontSizeH1">Luiz Lelis</h1>
               <h2 :class="fontSizeH2">Software Engineer</h2>
               <body :class="fontSizeBody">
                 Currently working with back-end development
@@ -147,7 +147,6 @@ export default {
     return {
       dialog: false,
       videoId: "jCjPL_80bpA",
-      heroImg: require("@/assets/bg-hero-dark.jpg"),
       features: [
         {
           img: require("@/assets/blog-image-typesense.png"),
@@ -252,6 +251,10 @@ export default {
   stroke-dashoffset: 650;
   -webkit-transition: all 0.5s ease-in-out;
   opacity: 0.3;
+}
+
+.my-app.v-application .primary--text {
+    color: #0d0d0d !important;
 }
 
 .playBut {
