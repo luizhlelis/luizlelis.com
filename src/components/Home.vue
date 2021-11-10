@@ -1,7 +1,7 @@
 <template>
   <section id="hero">
     <!-- Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/rainbow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
-    <v-parallax dark src="@/assets/bgHero.jpg" height="750">
+    <v-parallax dark v-bind:src="heroImg" height="750">
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="center">
@@ -77,7 +77,8 @@
         </v-col>
       </v-row>
       <div class="svg-border-waves text-white">
-        <v-img src="@/assets/borderWaves.svg" />
+        <v-img v-show="$vuetify.theme.isDark" src="@/assets/border-waves-gray.svg" />
+        <v-img v-show="!$vuetify.theme.isDark" src="@/assets/border-waves-white.svg" />
       </div>
     </v-parallax>
     <v-container fluid id="features" class="mt-2">
@@ -134,7 +135,8 @@
       </v-card>
     </v-dialog>
     <div class="svg-border-waves">
-      <img src="~@/assets/wave2.svg" />
+      <img v-show="$vuetify.theme.isDark" src="~@/assets/botton-waves-gray.svg" />
+      <img v-show="!$vuetify.theme.isDark" src="~@/assets/botton-waves-white.svg" />
     </div>
   </section>
 </template>
@@ -145,6 +147,7 @@ export default {
     return {
       dialog: false,
       videoId: "jCjPL_80bpA",
+      heroImg: require("@/assets/bg-hero-dark.jpg"),
       features: [
         {
           img: require("@/assets/blog-image-typesense.png"),
