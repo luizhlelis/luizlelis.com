@@ -4,20 +4,19 @@
     <Navigation :color="color" :flat="flat" />
     <v-main class="pt-0">
       <Home />
-      <About v-show="false" />
+      <!-- <About v-show="false" />
       <Posts v-show="false" />
-      <Contact v-show="false" />
+      <Contact v-show="false" /> -->
     </v-main>
     <v-scale-transition>
       <v-btn
         fab
         v-show="fab"
         v-scroll="onScroll"
-        dark
         fixed
         bottom
         right
-        color="secondary"
+        color="#ff0266"
         @click="toTop">
         <v-icon>mdi-arrow-up</v-icon>
       </v-btn>
@@ -31,9 +30,9 @@
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
-import About from "./components/About";
-import Posts from "./components/Posts";
-import Contact from "./components/Contact";
+// import About from "./components/About";
+// import Posts from "./components/Posts";
+// import Contact from "./components/Contact";
 
 export default {
   name: 'App',
@@ -43,9 +42,9 @@ export default {
     Navigation,
     Footer,
     Home,
-    About,
-    Posts,
-    Contact
+    // About,
+    // Posts,
+    // Contact
   },
 
   data: () => ({
@@ -56,6 +55,7 @@ export default {
 
   created() {
     const top = window.pageYOffset || 0;
+    this.$vuetify.theme.isDark = true;
     if (top <= 60) {
       this.color = "transparent";
       this.flat = true;

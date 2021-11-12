@@ -1,20 +1,21 @@
 <template>
   <section id="hero">
     <!-- Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/rainbow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
-    <v-parallax dark src="@/assets/bgHero.jpg" height="750">
+    <v-parallax dark :src="require('@/assets/bg-hero-dark-'+$vuetify.theme.isDark+'.jpg')" height="750">
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="center">
             <v-col cols="12" md="6" xl="8">
-              <h1 :class="fontSizeH1">Luiz Lelis</h1>
-              <h2 :class="fontSizeH2">Software Engineer</h2>
-              <body :class="fontSizeBody">
+              <h1 :style="getThemeTextColor" :class="fontSizeH1">Luiz Lelis</h1>
+              <h2 :style="getThemeTextColor" :class="fontSizeH2">Software Engineer</h2>
+              <body :style="getThemeTextColor" :class="fontSizeBody">
                 Currently working with back-end development
                 and infrastructure. Main technologies and languages:
                 C#, Python, Go, JavaScript, AWS, Azure Cloud and
                 Azure Devops.
               </body>
               <v-btn
+                :style="getThemeTextColor"
                 rounded
                 outlined
                 large
@@ -22,10 +23,10 @@
                 @click="$vuetify.goTo('#features')"
                 class="mt-5"
               >
-                <body :class="fontSizeBody">
+                <body :style="getThemeTextColor" :class="fontSizeBody">
                   About me
                 </body>
-                <v-icon class="ml-2">mdi-arrow-down</v-icon>
+                <v-icon :style="getThemeTextColor" class="ml-2">mdi-arrow-down</v-icon>
               </v-btn>
               <div class="video d-flex align-center py-4">
                 <a @click.stop="dialog = true" class="playBut">
@@ -43,6 +44,7 @@
                     xml:space="preserve"
                   >
                     <polygon
+                      :style="getThemeStrokeColor"
                       class="triangle"
                       id="XMLID_18_"
                       fill="none"
@@ -54,6 +56,7 @@
                     />
 
                     <circle
+                      :style="getThemeStrokeColor"
                       class="circle"
                       id="XMLID_17_"
                       fill="none"
@@ -67,7 +70,7 @@
                     />
                   </svg>
                 </a>
-                <p class="subheading ml-2 mb-0" :class="fontSizeBody">
+                <p :style="getThemeTextColor" class="subheading ml-2 mb-0" :class="fontSizeBody">
                   Tech Talk (PT-BR)
                 </p>
               </div>
@@ -77,7 +80,8 @@
         </v-col>
       </v-row>
       <div class="svg-border-waves text-white">
-        <v-img src="@/assets/borderWaves.svg" />
+        <v-img v-show="$vuetify.theme.isDark" src="@/assets/border-waves-gray.svg" />
+        <v-img v-show="!$vuetify.theme.isDark" src="@/assets/border-waves-white.svg" />
       </div>
     </v-parallax>
     <v-container fluid id="features" class="mt-2">
@@ -134,7 +138,8 @@
       </v-card>
     </v-dialog>
     <div class="svg-border-waves">
-      <img src="~@/assets/wave2.svg" />
+      <img v-show="$vuetify.theme.isDark" src="~@/assets/botton-waves-gray.svg" />
+      <img v-show="!$vuetify.theme.isDark" src="~@/assets/botton-waves-white.svg" />
     </div>
   </section>
 </template>
@@ -193,8 +198,14 @@ export default {
     // },
   },
   computed: {
+    getThemeTextColor() {
+      return !this.$vuetify.theme.isDark ? "color: rgba(0, 0, 0, 0.87);" : "";
+    },
+    getThemeStrokeColor() {
+      return !this.$vuetify.theme.isDark ? "stroke: rgba(0, 0, 0, 0.87);" : "";
+    },
     fontSizeH1 () {
-      console.log(this.$vuetify.breakpoint.name)
+      console.log(this.$vuetify.theme);
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 'font-h1-xs'
         case 'sm': return 'font-h1-sm'
@@ -243,12 +254,17 @@ export default {
 </script>
 
 <style lang="scss">
+
 .circle {
   stroke: white;
   stroke-dasharray: 650;
   stroke-dashoffset: 650;
   -webkit-transition: all 0.5s ease-in-out;
   opacity: 0.3;
+}
+
+.my-app.v-application .primary--text {
+    color: #0d0d0d;
 }
 
 .playBut {

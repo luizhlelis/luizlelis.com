@@ -22,7 +22,7 @@
       <v-divider></v-divider>
 
       <v-card-text :class="fontSizeBody" class="white--text">
-        {{ new Date().getFullYear() }} — <strong>Luiz Lelis</strong>
+        {{ new Date().getFullYear() }}, <strong>Luiz Lelis</strong> — work in progress...
       </v-card-text>
     </v-card>
   </v-footer>
