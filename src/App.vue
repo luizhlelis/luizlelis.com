@@ -13,11 +13,10 @@
         fab
         v-show="fab"
         v-scroll="onScroll"
-        dark
         fixed
         bottom
         right
-        color="secondary"
+        color="#ff0266"
         @click="toTop">
         <v-icon>mdi-arrow-up</v-icon>
       </v-btn>

@@ -16,14 +16,12 @@ export default new Vuetify({
       isDark: true,
       light: {
         primary: "#1F1B24",
-        'primary--text': "#0d0d0d",
         secondary: "#1F1B24",
         accent: "#ff0266",
         info: "#ffffff"
       },
       dark: {
         primary: "#119DA4",
-        'primary--text': "#0d0d0d",
         secondary: "#171b34",
         accent: "3D87E4",
         background: "#121212",

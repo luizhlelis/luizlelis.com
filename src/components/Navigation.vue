@@ -6,7 +6,6 @@
       temporary
       dark
       src="@/assets/navigation.png"
-      class=""
     >
       <v-list>
         <v-list-item>
@@ -51,7 +50,6 @@
       height="80vw"
       :color="color"
       :flat="flat"
-      dark
       class="px-15"
       :style="headerPaddingSize"
       :class="{ expand: flat }"
