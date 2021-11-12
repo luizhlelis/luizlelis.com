@@ -55,6 +55,7 @@ export default {
 
   created() {
     const top = window.pageYOffset || 0;
+    this.$vuetify.theme.isDark = true;
     if (top <= 60) {
       this.color = "transparent";
       this.flat = true;
