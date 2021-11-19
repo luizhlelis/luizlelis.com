@@ -1,26 +1,26 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './components/Home.vue'
+// import Vue from 'vue'
+// import Router from 'vue-router'
+// import Home from './components/Home.vue'
 
-Vue.use(Router)
+// Vue.use(Router)
 
-const DEFAULT_TITLE = 'Luiz Lelis · Developer';
+// const DEFAULT_TITLE = 'Luiz Lelis · Developer';
 
-const router = new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-      meta: { title: '' }
-    }
-  ]
-})
+// const router = new Router({
+//   routes: [
+//     {
+//       path: '/',
+//       name: 'home',
+//       component: Home,
+//       meta: { title: '' }
+//     }
+//   ]
+// })
 
-router.afterEach((to) => {
-    Vue.nextTick(() => {
-        document.title = to.meta.title || DEFAULT_TITLE;
-    });
-});
+// router.afterEach((to) => {
+//     Vue.nextTick(() => {
+//         document.title = to.meta.title || DEFAULT_TITLE;
+//     });
+// });
 
-export default router;
+// export default router;

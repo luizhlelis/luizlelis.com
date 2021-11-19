@@ -36,17 +36,17 @@ import Home from "./components/Home";
 
 export default {
   name: 'App',
-  metaInfo: {
-    title: 'Luiz Lelis',
-    titleTemplate: '%s · Developer',
-    htmlAttrs: {
-      lang: 'en-US'
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'description', content: 'Software Engineer currently working with back-end development (C#, AWS, Azure)' }
-    ]
-  },
+  // metaInfo: {
+  //   title: 'Luiz Lelis',
+  //   titleTemplate: '%s · Developer',
+  //   htmlAttrs: {
+  //     lang: 'en-US'
+  //   },
+  //   meta: [
+  //     { charset: 'utf-8' },
+  //     { name: 'description', content: 'Software Engineer currently working with back-end development (C#, AWS, Azure)' }
+  //   ]
+  // },
 
   components: {
     // Waterfall,
