@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mdi/font": "^6.3.95",
+    "compression-webpack-plugin": "^6.1.1",
     "core-js": "^3.6.5",
     "deepai": "^1.0.17",
     "p5": "^1.4.0",
