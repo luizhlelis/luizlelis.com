@@ -88,12 +88,6 @@
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="space-around">
-            <!-- <v-col cols="12" class="text-center">
-              <h1 class="font-weight-light display-2">Title</h1>
-              <h1 class="font-weight-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h1>
-            </v-col> -->
             <v-col
               cols="12"
               sm="4"
@@ -119,6 +113,15 @@
                     :class="{ 'zoom-efect': hover }"
                   ></v-img>
                   <h1 :class="fontSizeH2" class="font-weight-regular">{{ feature.title }}</h1>
+                  <a
+                    href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                    class="twitter-share-button"
+                    data-text="Take a look at this post written by @luizhlelis"
+                    :data-url="feature.link"
+                    data-related="luizhlelis"
+                    data-lang="en"
+                    data-show-count="false">
+                  </a>
                   <h4 :class="fontSizeBody" class="font-weight-regular">{{ feature.text }}</h4>
                 </v-card>
               </v-hover>
@@ -145,7 +148,15 @@
 </template>
 
 <script>
+
 export default {
+  mounted() {
+    let twitterScript = document.createElement('script')
+    twitterScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+    twitterScript.setAttribute('charset', 'utf-8')
+    document.head.appendChild(twitterScript)
+  },
+
   data() {
     return {
       dialog: false,
