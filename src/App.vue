@@ -2,12 +2,7 @@
   <!-- <Waterfall /> -->
   <v-app>
     <Navigation :color="color" :flat="flat" />
-    <v-main class="pt-0">
-      <Home />
-      <!-- <About v-show="false" />
-      <Posts v-show="false" />
-      <Contact v-show="false" /> -->
-    </v-main>
+    <router-view></router-view>
     <v-scale-transition>
       <v-btn
         fab
@@ -29,30 +24,19 @@
 // import Waterfall from './components/Waterfall.vue'
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
+// import Home from "./components/Home";
 // import About from "./components/About";
 // import Posts from "./components/Posts";
 // import Contact from "./components/Contact";
 
 export default {
   name: 'App',
-  // metaInfo: {
-  //   title: 'Luiz Lelis',
-  //   titleTemplate: '%s · Developer',
-  //   htmlAttrs: {
-  //     lang: 'en-US'
-  //   },
-  //   meta: [
-  //     { charset: 'utf-8' },
-  //     { name: 'description', content: 'Software Engineer currently working with back-end development (C#, AWS, Azure)' }
-  //   ]
-  // },
 
   components: {
     // Waterfall,
     Navigation,
     Footer,
-    Home,
+    // Home,
     // About,
     // Posts,
     // Contact
