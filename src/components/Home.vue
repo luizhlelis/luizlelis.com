@@ -141,8 +141,8 @@
       </v-card>
     </v-dialog>
     <div class="svg-border-waves">
-      <img v-show="$vuetify.theme.isDark" src="~@/assets/botton-waves-gray.svg" />
-      <img v-show="!$vuetify.theme.isDark" src="~@/assets/botton-waves-white.svg" />
+      <img v-show="$vuetify.theme.isDark" src="~@/assets/botton-waves-gray.svg" alt="Gray Button Waves"/>
+      <img v-show="!$vuetify.theme.isDark" src="~@/assets/botton-waves-white.svg" alt="White Button Waves"/>
     </div>
   </section>
 </template>
