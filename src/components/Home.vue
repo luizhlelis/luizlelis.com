@@ -202,7 +202,7 @@ export default {
             link: "https://dev.to/luizhlelis/net-core-2-1-container-images-were-deleted-from-docker-hub-3nhm"
           },
           {
-            img: require("@/assets/blog-image-trace.png"),
+            img: require("@/assets/blog-image-trace-csharp.png"),
             title: "dev.to",
             text: "[c#] Using W3C Trace Context standard in distributed tracing",
             link: "https://dev.to/luizhlelis/c-using-w3c-trace-context-standard-in-distributed-tracing-1nm0"
