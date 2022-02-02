@@ -216,7 +216,6 @@ export default {
       return !this.$vuetify.theme.isDark ? "stroke: rgba(0, 0, 0, 0.87);" : "";
     },
     fontSizeH1 () {
-      console.log(this.$vuetify.theme);
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 'font-h1-xs'
         case 'sm': return 'font-h1-sm'

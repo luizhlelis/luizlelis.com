@@ -16,7 +16,6 @@
     name: 'NotFound',
     computed: {
       fontSizeH1 () {
-        console.log(this.$vuetify.theme);
         switch (this.$vuetify.breakpoint.name) {
           case 'xs': return 'font-h1-xs'
           case 'sm': return 'font-h1-sm'
