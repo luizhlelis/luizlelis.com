@@ -87,7 +87,6 @@ export default {
 
 html, body {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5vw
 }
 
 h1 {
