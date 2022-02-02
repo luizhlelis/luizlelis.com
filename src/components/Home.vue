@@ -20,7 +20,7 @@
                 outlined
                 large
                 dark
-                @click="$vuetify.goTo('#features')"
+                @click="$vuetify.goTo('#articles')"
                 class="mt-5"
               >
                 <body :style="getThemeTextColor" :class="fontSizeBody">
@@ -84,7 +84,7 @@
         <v-img v-show="!$vuetify.theme.isDark" src="@/assets/border-waves-white.svg" />
       </div>
     </v-parallax>
-    <v-container fluid id="features" class="mt-2">
+    <v-container fluid id="articles" class="mt-2">
       <v-row align="center" justify="center">
         <v-col cols="10">
           <v-row align="center" justify="space-around">
@@ -92,7 +92,7 @@
               cols="12"
               sm="4"
               class="text-center"
-              v-for="(feature, i) in features"
+              v-for="(feature, i) in articlesPage"
               :key="i"
             >
               <v-hover v-slot:default="{ hover }">
@@ -127,6 +127,15 @@
               </v-hover>
             </v-col>
           </v-row>
+            <div class="text-center">
+              <v-pagination
+                v-model="page"
+                @input="next"
+                :length="2"
+                circle
+                light
+              ></v-pagination>
+            </div>
         </v-col>
       </v-row>
     </v-container>
@@ -155,33 +164,52 @@ export default {
     twitterScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
     twitterScript.setAttribute('charset', 'utf-8')
     document.head.appendChild(twitterScript)
+    this.articlesPage = this.articles[1];
   },
 
   data() {
     return {
       dialog: false,
       videoId: "jCjPL_80bpA",
-      features: [
-        {
-          img: require("@/assets/blog-image-typesense.png"),
-          title: "dev.to",
-          text: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
-          link: "https://dev.to/luizhlelis/typesense-search-engine-an-easier-to-use-alternative-to-elasticsearch-33dg"
-        },
-        {
-          img: require("@/assets/blog-image-trace.png"),
-          title: "dev.to",
-          text: "Using W3C Trace Context standard in distributed tracing",
-          link: "https://dev.to/luizhlelis/using-w3c-trace-context-standard-in-distributed-tracing-3743"
-        },
-        {
-          img: require("@/assets/blog-image-integration-test.png"),
-          title: "snippets",
-          text: "How to Run Integration Tests Using Docker Compose and .NET 5",
-          link: "https://blog.avenuecode.com/how-to-run-integration-tests-using-docker-compose-and-.net-5"
-        },
-      ],
-    };
+      page: 1,
+      articlesPage: [],
+      articles: {
+        1: [
+          {
+            img: require("@/assets/blog-image-typesense.png"),
+            title: "dev.to",
+            text: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
+            link: "https://dev.to/luizhlelis/typesense-search-engine-an-easier-to-use-alternative-to-elasticsearch-33dg"
+          },
+          {
+            img: require("@/assets/blog-image-trace.png"),
+            title: "dev.to",
+            text: "Using W3C Trace Context standard in distributed tracing",
+            link: "https://dev.to/luizhlelis/using-w3c-trace-context-standard-in-distributed-tracing-3743"
+          },
+          {
+            img: require("@/assets/blog-image-integration-test.png"),
+            title: "snippets",
+            text: "How to Run Integration Tests Using Docker Compose and .NET 5",
+            link: "https://blog.avenuecode.com/how-to-run-integration-tests-using-docker-compose-and-.net-5"
+          },
+        ],
+        2: [
+          {
+            img: require("@/assets/blog-image-docker-hub.png"),
+            title: "dev.to",
+            text: ".NET Core 2.1 container images were deleted from Docker Hub!",
+            link: "https://dev.to/luizhlelis/net-core-2-1-container-images-were-deleted-from-docker-hub-3nhm"
+          },
+          {
+            img: require("@/assets/blog-image-trace.png"),
+            title: "dev.to",
+            text: "[c#] Using W3C Trace Context standard in distributed tracing",
+            link: "https://dev.to/luizhlelis/c-using-w3c-trace-context-standard-in-distributed-tracing-1nm0"
+          },
+        ],
+      }
+    }
   },
   watch: {
     // dialog(value) {
@@ -191,6 +219,9 @@ export default {
     // },
   },
   methods: {
+    next() {
+      this.articlesPage = this.articles[this.page];
+    },
     // ready(event) {
     //   this.player = event.target;
     // },
