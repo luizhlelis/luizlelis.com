@@ -4,6 +4,7 @@ import vuetify from './plugins/vuetify'
 import VueYouTubeEmbed from 'vue-youtube-embed'
 import Router from 'vue-router'
 import Home from './components/Home.vue'
+import Article from './components/Article.vue'
 import NotFound from './components/NotFound.vue'
 
 Vue.use(VueYouTubeEmbed)
@@ -18,6 +19,11 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/article',
+      name: 'article',
+      component: Article
     },
     {
       path: '*',

@@ -12,6 +12,7 @@
     "compression-webpack-plugin": "^6.1.1",
     "core-js": "^3.6.5",
     "deepai": "^1.0.17",
+    "markdown-it-vue": "^1.1.6",
     "p5": "^1.4.0",
     "sass": "~1.32",
     "sass-loader": "^10",
