@@ -179,13 +179,13 @@ export default {
             img: require("@/assets/blog-image-typesense.png"),
             title: "dev.to",
             text: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
-            link: "https://dev.to/luizhlelis/typesense-search-engine-an-easier-to-use-alternative-to-elasticsearch-33dg"
+            link: "/blog/typesense"
           },
           {
             img: require("@/assets/blog-image-trace.png"),
             title: "dev.to",
             text: "Using W3C Trace Context standard in distributed tracing",
-            link: "https://dev.to/luizhlelis/using-w3c-trace-context-standard-in-distributed-tracing-3743"
+            link: "/blog/tracecontext"
           },
           {
             img: require("@/assets/blog-image-integration-test.png"),
@@ -199,13 +199,13 @@ export default {
             img: require("@/assets/blog-image-docker-hub.png"),
             title: "dev.to",
             text: ".NET Core 2.1 container images were deleted from Docker Hub!",
-            link: "https://dev.to/luizhlelis/net-core-2-1-container-images-were-deleted-from-docker-hub-3nhm"
+            link: "/blog/dotnet-docker-images-deleted"
           },
           {
             img: require("@/assets/blog-image-trace-csharp.png"),
             title: "dev.to",
             text: "[c#] Using W3C Trace Context standard in distributed tracing",
-            link: "https://dev.to/luizhlelis/c-using-w3c-trace-context-standard-in-distributed-tracing-1nm0"
+            link: "/blog/tracecontext-dotnet"
           },
         ],
       }
@@ -464,6 +464,7 @@ export default {
   transform: translateY(-20px);
   transition: 0.5s ease-out;
 }
+
 </style>
 
 <style>
