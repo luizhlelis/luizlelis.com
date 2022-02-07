@@ -21,6 +21,7 @@
           :key="i"
           link
           @click="$vuetify.goTo(link)"
+          to="/"
         >
           <v-list-item-icon class="justify-center">
             <v-icon class="text-border-black">{{ icon }}</v-icon>
@@ -64,7 +65,7 @@
         v-if="isXs"
       />
       <div v-else>
-        <v-btn text @click="$vuetify.goTo('#hero')">
+        <v-btn style="color: transparent;" text v-on:click="$vuetify.goTo('#hero')" to="/">
           <span class="mr-2">
             <h3 class="accent--text text-border-white">Home</h3>
           </span>
