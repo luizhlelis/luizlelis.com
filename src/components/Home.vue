@@ -196,6 +196,12 @@ export default {
         ],
         2: [
           {
+            img: require("@/assets/blog-image-go-self-signed.png"),
+            title: "dev.to",
+            text: "🔐 Building a self signed server in golang",
+            link: "/blog/go-lang-self-signed"
+          },
+          {
             img: require("@/assets/blog-image-docker-hub.png"),
             title: "dev.to",
             text: ".NET Core 2.1 container images were deleted from Docker Hub!",

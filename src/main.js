@@ -45,6 +45,12 @@ const router = new Router({
       props: { articleId: 'typesense', imgRef: 'https://raw.githubusercontent.com/luizhlelis/typesense-playground/main/doc/article-hero.png' }
     },
     {
+      path: '/blog/go-lang-self-signed',
+      name: 'go-lang-self-signed',
+      component: Article,
+      props: { articleId: 'go-lang-self-signed', imgRef: 'https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/article-hero.png' }
+    },
+    {
       path: '*',
       name: 'Not Found',
       component: NotFound
