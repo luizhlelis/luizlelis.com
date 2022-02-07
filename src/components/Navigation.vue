@@ -32,7 +32,7 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
+        <v-list-item v-show="showBasedOnRoute()" v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
           <v-list-item-icon class="justify-center">
             <v-icon v-show="$vuetify.theme.isDark" class="text-border-black">mdi-lightbulb-off</v-icon>
             <v-icon v-show="!$vuetify.theme.isDark" class="text-border-black">mdi-lightbulb-on</v-icon>
@@ -85,7 +85,7 @@
             <h3 class="accent--text text-border-white">Contact</h3>
           </span>
         </v-btn>
-        <v-btn text v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
+        <v-btn v-show="showBasedOnRoute()" text v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
           <span class="mr-2">
             <v-icon v-show="$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-off</v-icon>
             <v-icon v-show="!$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-on</v-icon>
@@ -168,6 +168,14 @@ export default {
     onResize() {
       this.isXs = window.innerWidth < 850;
     },
+    showBasedOnRoute() {
+      switch (this.$route.name) {
+        case 'home':
+          return true;
+        default:
+          true;
+      }
+    }
   },
 
   watch: {
