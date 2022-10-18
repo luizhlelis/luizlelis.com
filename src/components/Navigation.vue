@@ -1,12 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      temporary
-      dark
-      src="@/assets/navigation.png"
-    >
+    <v-navigation-drawer v-model="drawer" app temporary dark src="@/assets/navigation.png">
       <v-list>
         <v-list-item>
           <Logo />
@@ -16,13 +10,7 @@
       <v-divider />
 
       <v-list dense>
-        <v-list-item
-          v-for="([icon, text, link], i) in items"
-          :key="i"
-          link
-          @click="$vuetify.goTo(link)"
-          to="/"
-        >
+        <v-list-item v-for="([icon, text, link], i) in items" :key="i" link @click="$vuetify.goTo(link)" to="/">
           <v-list-item-icon class="justify-center">
             <v-icon class="text-border-black">{{ icon }}</v-icon>
           </v-list-item-icon>
@@ -46,24 +34,13 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      height="80vw"
-      :color="color"
-      :flat="flat"
-      class="px-15"
-      :style="headerPaddingSize"
-      :class="{ expand: flat }"
-    >
+    <v-app-bar app height="80vw" :color="color" :flat="flat" class="px-15" :style="headerPaddingSize"
+      :class="{ expand: flat }">
       <v-toolbar-title>
         <Logo />
       </v-toolbar-title>
       <v-spacer />
-      <v-app-bar-nav-icon
-        @click.stop="drawer = !drawer"
-        class="mr-4"
-        v-if="isXs"
-      />
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="mr-4" v-if="isXs" />
       <div v-else>
         <v-btn style="color: transparent;" text v-on:click="$vuetify.goTo('#hero')" to="/">
           <span class="mr-2">
@@ -75,9 +52,9 @@
             <h3 class="accent--text text-border-white">About</h3>
           </span>
         </v-btn>
-        <v-btn text v-show="false" @click="$vuetify.goTo('#posts')">
+        <v-btn text v-show="false" @click="$vuetify.goTo('#blog')">
           <span class="mr-2">
-            <h3 class="accent--text text-border-white">Posts</h3>
+            <h3 class="accent--text text-border-white">Blog</h3>
           </span>
         </v-btn>
         <v-btn text v-show="false" @click="$vuetify.goTo('#contact')">
@@ -101,7 +78,7 @@
   transition: 0.6s;
 }
 
-.navigation-item{
+.navigation-item {
   height: 20px;
   align-items: center;
   display: flex;
@@ -129,15 +106,15 @@
 }
 
 .font-h2-md {
- font-size: 1.5vw;
+  font-size: 1.5vw;
 }
 
 .font-h2-lg {
- font-size: 1.5vw;
+  font-size: 1.5vw;
 }
 
 .font-h2-xl {
- font-size: 1.5vw;
+  font-size: 1.5vw;
 }
 </style>
 
@@ -156,7 +133,7 @@ export default {
     items: [
       ["mdi-home", "Home", "#hero"],
       // ["mdi-information-outline", "About", "#about"],
-      // ["mdi-book-edit-outline", "Posts", "#posts"],
+      // ["mdi-book-edit-outline", "Blog", "#blog"],
       // ["mdi-email-outline", "Contact", "#contact"]
     ],
   }),
@@ -172,6 +149,8 @@ export default {
       switch (this.$route.name) {
         case 'home':
           return true;
+        // case 'blog':
+        //   return true;
         default:
           true;
       }
@@ -192,7 +171,7 @@ export default {
     window.addEventListener("resize", this.onResize, { passive: true });
   },
   computed: {
-    fontSizeH2 () {
+    fontSizeH2() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 'font-h2-xs'
         case 'sm': return 'font-h2-sm'
@@ -202,7 +181,7 @@ export default {
       }
       return ''
     },
-    headerPaddingSize () {
+    headerPaddingSize() {
       if (this.$vuetify.breakpoint.name === 'xs' || this.$vuetify.breakpoint.name === 'sm') {
         return 'padding-left: 20px !important; padding-right: 20px !important;'
       }

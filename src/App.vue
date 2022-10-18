@@ -4,18 +4,11 @@
     <Navigation :color="color" :flat="flat" />
     <router-view></router-view>
     <v-scale-transition>
-      <v-btn
-        fab
-        v-show="fab"
-        v-scroll="onScroll"
-        fixed
-        bottom
-        right
-        color="#ff0266"
-        @click="toTop">
+      <v-btn fab v-show="fab" v-scroll="onScroll" fixed bottom right color="#ff0266" @click="toTop">
         <v-icon>mdi-arrow-up</v-icon>
       </v-btn>
     </v-scale-transition>
+    <blog />
     <Footer />
   </v-app>
 </template>
@@ -24,6 +17,7 @@
 // import Waterfall from './components/Waterfall.vue'
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import Blog from "./components/Blog.vue"
 // import Home from "./components/Home";
 // import About from "./components/About";
 // import Posts from "./components/Posts";
@@ -36,6 +30,7 @@ export default {
     // Waterfall,
     Navigation,
     Footer,
+    Blog,
     // Home,
     // About,
     // Posts,
@@ -85,7 +80,8 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Roboto&display=swap');
 
-html, body {
+html,
+body {
   font-family: 'Roboto', sans-serif;
 }
 

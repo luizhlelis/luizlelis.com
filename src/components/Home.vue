@@ -8,21 +8,16 @@
             <v-col cols="12" md="6" xl="8">
               <h1 :style="getThemeTextColor" :class="fontSizeH1">Luiz Lelis</h1>
               <h2 :style="getThemeTextColor" :class="fontSizeH2">Software Engineer</h2>
+
               <body :style="getThemeTextColor" :class="fontSizeBody">
                 Currently working with back-end development
                 and infrastructure. Main technologies and languages:
                 C#, Python, Go, JavaScript, AWS, Azure Cloud and
                 Azure Devops.
               </body>
-              <v-btn
-                :style="getThemeTextColor"
-                rounded
-                outlined
-                large
-                dark
-                @click="$vuetify.goTo('#articles')"
-                class="mt-5"
-              >
+              <v-btn :style="getThemeTextColor" rounded outlined large dark @click="$vuetify.goTo('#articles')"
+                class="mt-5">
+
                 <body :style="getThemeTextColor" :class="fontSizeBody">
                   About me
                 </body>
@@ -30,44 +25,17 @@
               </v-btn>
               <div class="video d-flex align-center py-4">
                 <a @click.stop="dialog = true" class="playBut">
-                  <svg
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-                    x="0px"
-                    y="0px"
-                    width="60px"
-                    height="60px"
-                    viewBox="0 0 213.7 213.7"
-                    enable-background="new 0 0 213.7 213.7"
-                    xml:space="preserve"
-                  >
-                    <polygon
-                      :style="getThemeStrokeColor"
-                      class="triangle"
-                      id="XMLID_18_"
-                      fill="none"
-                      stroke-width="7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-miterlimit="10"
-                      points="73.5,62.5 148.5,105.8 73.5,149.1 "
-                    />
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="60px"
+                    height="60px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7"
+                    xml:space="preserve">
+                    <polygon :style="getThemeStrokeColor" class="triangle" id="XMLID_18_" fill="none" stroke-width="7"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                      points="73.5,62.5 148.5,105.8 73.5,149.1 " />
 
-                    <circle
-                      :style="getThemeStrokeColor"
-                      class="circle"
-                      id="XMLID_17_"
-                      fill="none"
-                      stroke-width="7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-miterlimit="10"
-                      cx="106.8"
-                      cy="106.8"
-                      r="103.3"
-                    />
+                    <circle :style="getThemeStrokeColor" class="circle" id="XMLID_17_" fill="none" stroke-width="7"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="106.8" cy="106.8"
+                      r="103.3" />
                   </svg>
                 </a>
                 <p :style="getThemeTextColor" class="subheading ml-2 mb-0" :class="fontSizeBody">
@@ -84,174 +52,28 @@
         <v-img v-show="!$vuetify.theme.isDark" src="@/assets/border-waves-white.svg" />
       </div>
     </v-parallax>
-    <v-container fluid id="articles" class="mt-2">
-      <v-row align="center" justify="center">
-        <v-col cols="10">
-          <v-row align="center" justify="space-around">
-            <v-col
-              cols="12"
-              sm="4"
-              class="text-center"
-              v-for="(feature, i) in articlesPage"
-              :key="i"
-            >
-              <v-hover v-slot:default="{ hover }">
-                <v-card
-                  class="card"
-                  shaped
-                  :link="true"
-                  :href="feature.link"
-                  target="_blank"
-                  :elevation="hover ? 10 : 4"
-                  :class="{ up: hover }"
-                  style="vertical-align: middle; display: table-cell; height: 250px;"
-                >
-                  <v-img
-                    :src="feature.img"
-                    max-width="100px"
-                    class="d-block ml-auto mr-auto"
-                    :class="{ 'zoom-efect': hover }"
-                  ></v-img>
-                  <h1 :class="fontSizeH2" class="font-weight-regular">{{ feature.title }}</h1>
-                  <a
-                    href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                    class="twitter-share-button"
-                    data-text="Take a look at this post written by @luizhlelis"
-                    :data-url="feature.link"
-                    data-related="luizhlelis"
-                    data-lang="en"
-                    data-show-count="false">
-                  </a>
-                  <h4 :class="fontSizeBody" class="font-weight-regular">{{ feature.text }}</h4>
-                </v-card>
-              </v-hover>
-            </v-col>
-          </v-row>
-            <div class="text-center">
-              <v-pagination
-                v-model="page"
-                @input="next"
-                :length="2"
-                circle
-                light
-              ></v-pagination>
-            </div>
-        </v-col>
-      </v-row>
-    </v-container>
     <v-dialog v-model="dialog" max-width="640px">
       <v-card>
-        <youtube
-          :video-id="videoId"
-          :host="'https://youtube.com'"
-          :player-height="heightPlayerSize"
-          :player-width="widthPlayerSize"
-        ></youtube>
+        <youtube :video-id="videoId" :host="'https://youtube.com'" :player-height="heightPlayerSize"
+          :player-width="widthPlayerSize"></youtube>
       </v-card>
     </v-dialog>
-    <div class="svg-border-waves">
-      <img v-show="$vuetify.theme.isDark" src="~@/assets/botton-waves-gray.svg" alt="Gray Button Waves"/>
-      <img v-show="!$vuetify.theme.isDark" src="~@/assets/botton-waves-white.svg" alt="White Button Waves"/>
-    </div>
   </section>
 </template>
 
 <script>
 
 export default {
-  mounted() {
-    let twitterScript = document.createElement('script')
-    twitterScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-    twitterScript.setAttribute('charset', 'utf-8')
-    document.head.appendChild(twitterScript)
-    this.articlesPage = this.articles[1];
-  },
-
   data() {
     return {
       dialog: false,
       videoId: "jCjPL_80bpA",
-      page: 1,
-      articlesPage: [],
-      articles: {
-        1: [
-          {
-            img: require("@/assets/blog-image-outbox.png"),
-            title: "",
-            text: "📦 Data consistency, outbox pattern and idempotency in a microservice architecture",
-            link: "/blog/outbox-pattern"
-          },
-          {
-            img: require("@/assets/blog-image-typesense.png"),
-            title: "",
-            text: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
-            link: "/blog/typesense"
-          },
-          {
-            img: require("@/assets/blog-image-trace.png"),
-            title: "",
-            text: "Using W3C Trace Context standard in distributed tracing",
-            link: "/blog/tracecontext"
-          }
-        ],
-        2: [
-          {
-            img: require("@/assets/blog-image-integration-test.png"),
-            title: "",
-            text: "How to Run Integration Tests Using Docker Compose and .NET 5",
-            link: "https://blog.avenuecode.com/how-to-run-integration-tests-using-docker-compose-and-.net-5"
-          },
-          {
-            img: require("@/assets/blog-image-go-self-signed.png"),
-            title: "",
-            text: "🔐 Building a self signed server in golang",
-            link: "/blog/go-lang-self-signed"
-          },
-          {
-            img: require("@/assets/blog-image-docker-hub.png"),
-            title: "",
-            text: ".NET Core 2.1 container images were deleted from Docker Hub!",
-            link: "/blog/dotnet-docker-images-deleted"
-          }
-        ],
-        3: [
-          {
-            img: require("@/assets/blog-image-trace-csharp.png"),
-            title: "",
-            text: "[c#] Using W3C Trace Context standard in distributed tracing",
-            link: "/blog/tracecontext-dotnet"
-          },
-        ]
-      }
     }
-  },
-  watch: {
-    // dialog(value) {
-    //   if (!value) {
-    //     this.pause();
-    //   }
-    // },
   },
   methods: {
     next() {
       this.articlesPage = this.articles[this.page];
-    },
-    // ready(event) {
-    //   this.player = event.target;
-    // },
-    // change() {
-    //   // when you change the value, the player will also change.
-    //   // If you would like to change `playerVars`, please change it before you change `videoId`.
-    //   // If `playerVars.autoplay` is 1, `loadVideoById` will be called.
-    //   // If `playerVars.autoplay` is 0, `cueVideoById` will be called.
-    //   this.videoId = "another video id";
-    // },
-    // stop() {
-    //   this.player.stopVideo();
-    // },
-    // pause() {
-    //   this.player.pauseVideo();
-    // },
+    }
   },
   computed: {
     getThemeTextColor() {
@@ -260,7 +82,7 @@ export default {
     getThemeStrokeColor() {
       return !this.$vuetify.theme.isDark ? "stroke: rgba(0, 0, 0, 0.87);" : "";
     },
-    fontSizeH1 () {
+    fontSizeH1() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 'font-h1-xs'
         case 'sm': return 'font-h1-sm'
@@ -270,7 +92,7 @@ export default {
       }
       return ''
     },
-    fontSizeH2 () {
+    fontSizeH2() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 'font-h2-xs'
         case 'sm': return 'font-h2-sm'
@@ -280,7 +102,7 @@ export default {
       }
       return ''
     },
-    fontSizeBody () {
+    fontSizeBody() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return 'font-body-xs'
         case 'sm': return 'font-body-sm'
@@ -290,14 +112,14 @@ export default {
       }
       return ''
     },
-    heightPlayerSize () {
+    heightPlayerSize() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return this.$vuetify.breakpoint.height - 75
         case 'sm': return this.$vuetify.breakpoint.height - 110
       }
       return 360
     },
-    widthPlayerSize () {
+    widthPlayerSize() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs': return this.$vuetify.breakpoint.width - 50
         case 'sm': return this.$vuetify.breakpoint.width - 130
@@ -309,7 +131,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .circle {
   stroke: white;
   stroke-dasharray: 650;
@@ -319,7 +140,7 @@ export default {
 }
 
 .my-app.v-application .primary--text {
-    color: #0d0d0d;
+  color: #0d0d0d;
 }
 
 .playBut {
@@ -346,15 +167,19 @@ export default {
         0% {
           transform: translateX(0);
         }
+
         30% {
           transform: translateX(-5px);
         }
+
         50% {
           transform: translateX(5px);
         }
+
         70% {
           transform: translateX(-2px);
         }
+
         100% {
           transform: translateX(0);
         }
@@ -379,15 +204,15 @@ export default {
 }
 
 .font-h1-md {
- font-size: 4vw;
+  font-size: 4vw;
 }
 
 .font-h1-lg {
- font-size: 4vw;
+  font-size: 4vw;
 }
 
 .font-h1-xl {
- font-size: 4vw;
+  font-size: 4vw;
 }
 
 .font-h2-xs {
@@ -399,15 +224,15 @@ export default {
 }
 
 .font-h2-md {
- font-size: 2vw;
+  font-size: 2vw;
 }
 
 .font-h2-lg {
- font-size: 2vw;
+  font-size: 2vw;
 }
 
 .font-h2-xl {
- font-size: 2vw;
+  font-size: 2vw;
 }
 
 .font-body-xs {
@@ -419,15 +244,15 @@ export default {
 }
 
 .font-body-md {
- font-size: 1.5vw;
+  font-size: 1.5vw;
 }
 
 .font-body-lg {
- font-size: 1.5vw;
+  font-size: 1.5vw;
 }
 
 .font-body-xl {
- font-size: 1.5vw;
+  font-size: 1.5vw;
 }
 
 .btn-play {
@@ -446,6 +271,7 @@ export default {
 #hero {
   z-index: 0;
 }
+
 .svg-border-waves img {
   position: absolute;
   bottom: 0;
@@ -479,9 +305,6 @@ export default {
   transition: 0.5s ease-out;
 }
 
-</style>
-
-<style>
 section {
   position: relative;
 }
