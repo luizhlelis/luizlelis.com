@@ -1,5 +1,5 @@
 <template>
-    <section id="bla">
+    <section id="blog">
         <v-container fluid id="articles" class="mt-2">
             <v-row align="center" justify="center">
                 <v-col cols="10">

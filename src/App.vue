@@ -1,40 +1,31 @@
 <template>
-  <!-- <Waterfall /> -->
   <v-app>
     <Navigation :color="color" :flat="flat" />
     <router-view></router-view>
+    <v-main>
+      <Blog />
+    </v-main>
     <v-scale-transition>
       <v-btn fab v-show="fab" v-scroll="onScroll" fixed bottom right color="#ff0266" @click="toTop">
         <v-icon>mdi-arrow-up</v-icon>
       </v-btn>
     </v-scale-transition>
-    <blog />
     <Footer />
   </v-app>
 </template>
 
 <script>
-// import Waterfall from './components/Waterfall.vue'
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-import Blog from "./components/Blog.vue"
-// import Home from "./components/Home";
-// import About from "./components/About";
-// import Posts from "./components/Posts";
-// import Contact from "./components/Contact";
+import Blog from "./components/Blog.vue";
 
 export default {
   name: 'App',
 
   components: {
-    // Waterfall,
     Navigation,
     Footer,
-    Blog,
-    // Home,
-    // About,
-    // Posts,
-    // Contact
+    Blog
   },
 
   data: () => ({
@@ -102,30 +93,5 @@ h3 {
 
 #app {
   font-family: 'Roboto', sans-serif;
-}
-
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-}
-
-body {
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-} */
-
-.v-main {
-  background-image: url("~@/assets/bg-main-waves.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
 }
 </style>
