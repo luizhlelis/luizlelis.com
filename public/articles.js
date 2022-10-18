@@ -1,5 +1,79 @@
 var dict = {
-  "go-lang-self-signed" : `
+  "outbox-pattern": `# 📦 Data consistency, outbox pattern and idempotency in a microservice architecture
+
+  ## CAP Theorem
+  
+  Late 90's, the scientist Eric Brewer presented for the first time the CAP Theorem. The theorem states the "two out of three" concept, any distributed system can provide only two of the following guarantees:
+  
+  - Consistency: every request receives the most recent data or an error;
+  - Availability: every request receives a response, without the guarantee that it contains the most recent data;
+  - Partition tolerance: the system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes.
+  
+  Considering a web app, where there is a network connection between a database and a back-end application, or even between different services in a microservice architecture, the app must be partition tolerant. This means that, even after the network is partitioned, the system still works correctly. Therefore, after a partition, it only remains to decide whether to do one of the following: cancel the operation to ensure the consistency, or proceed with the operation providing availability but risk inconsistency.
+  
+  Let me give you an example to clarify the CAP theorem. Imagine an e-commerce that to the process of finishing an order, two services are involved: \`order\` and \`catalog\`. The \`order\` service has to check if there are products available calling the \`catalog\` API before finishing the order. If the \`catalog\` API is not available in that moment for any reason (a partition happened), the \`catalog\` API can behave two different ways:
+  
+  ### [Consistency] Choose the strong consistency returning an error
+  
+  ![consistent-system](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/consistent-system.png)
+  
+  ### [Availability] Giving up the strong consistency returning to the client that eventually the request will be processed
+  
+  ![available-system](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/available-system.png)
+  
+  The pattern that will be discussed in this article is an eventual consistency pattern. So, the outbox pattern gives up the solid consistency for focus on availability.
+  
+  ## Outbox pattern
+  
+  The outbox pattern makes sense only for distributed systems, discussing it in a monolithic scenario is completely nonsense. The problem that this pattern solves is: how to reliably/atomically update the database and send messages/events?
+  
+  The way as the pattern solves this problem is relatively easy to understand, basically it can be described in four steps:
+  
+  - A service that persists data in a database, inserts also messages/events into a table (which is called outbox table) as part of the local transaction;
+  - The service appends the messages/events to an attribute of the record being updated;
+  - Another process, called \`Message Relay\`, publishes the events inserted into the database to a message broker;
+  - If something wrong happen, the \`Message Relay\` process retry to send the event a few times until the set limit been reached;
+  - The messages/events are stored in the consumer side too.
+  
+  ![outbox-pattern](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/outbox-pattern.png)
+  
+  > **Edited version from:** https://github.com/dotnetcore/CAP
+  
+  So the outbox pattern would guarantee data consistency between the services, but what if the events are consumed twice? This is where idempotency comes in.
+  
+  ## Idempotency
+  
+  In a scenario with a broker \`at least once delivery\` the message could be persisted more than one time in two different situations:
+  
+  - The producer had produced a message and sent it to the broker, the consumer stores the data in the database but don't return an \`ack\` in a timely manner. Then, the broker concludes that the message was not processed sending the message again;
+  - In the outbox scenario, the producer had stored the message in the \`outbox table\` for the first time and sent it to the broker, but for some reason it wasn't able to update the \`outbox table\` saying that the message was published. For that reason, it will keep sending the message again until the \`outbox table\` had been updated.
+  
+  > **NOTE**: that could be even worse in a multiprocessing scenario
+  
+  ![idempotency](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/idempotency.png)
+  
+  To turn your consumer in an idempotent one, you could register in the database the message/event ID that has been rightly processed. When the consumer is processing a new message, it would be able detect and discard duplicates.
+  
+  ## Conclusion
+  
+  The outbox pattern is an eventual consistency pattern that cares about the system's availability but is not a silver bullet. When using it you should be careful about double message consumption choosing an idempotent consumer approach for example.
+  
+  There are many libraries in \`.NET\` that helps you implementing the \`outbox pattern\` like: [MassTransit](https://github.com/MassTransit/MassTransit), [NServiceBus](https://github.com/Particular/NServiceBus), [CAP](https://github.com/dotnetcore/CAP). Talking about idempotency, a special mention to a specific lib from a big friend that runs on top of \`CAP\` which is called [Ziggurat](https://github.com/rafaelpadovezi/Ziggurat).
+  
+  If you got until here and liked the article content, let me know reacting to the current post. You can also open a discussion below, I'll try to answer ASAP. Next article, I'll show you the code specifying all you need to build a system using \`outbox pattern\` and \`idempotency\` using \`.NET\`, \`CAP\` and \`Ziggurat\`. Hope you like it!
+  
+  ## References
+  
+  [CAP Playground, 📤 Just playing a bit with CAP and outbox pattern](https://github.com/luizhlelis/cap-playground)
+  
+  **[PT-BR]** JS+, Data consistency, outbox pattern and idempotency in a microservice architecture with .NET; [JS+ TechTalks #22 - Edição Lisboa](https://www.youtube.com/watch?v=rqade8-xjyc)
+  
+  Richardson, Chris; [Pattern: Idempotent Consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html)
+  
+  Richardson, Chris; [Pattern: Transactional outbox](https://microservices.io/patterns/data/transactional-outbox.html)
+  `,
+
+  "go-lang-self-signed": `
   # 🔐 Building a self signed server in golang
 
   This article will be useful to you if you want to create a self signed server in \`golang\`. There are many ways to use certificates to build and run a \`https\` server, this article will approach one of them: \`self-signed\` using openssl tool. You can see all the source code used in the current article in the public [github repository](https://github.com/luizhlelis/go-lang-https-self-signed).
@@ -428,7 +502,7 @@ var dict = {
   OPENTELEMETRY, Community. [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification)
   
   `,
-  "tracecontext": `
+  tracecontext: `
   # Using W3C Trace Context standard in distributed tracing
 
   In the software development process, when a system experiences a failure in runtime, it's natural for a developer to try to link that failure with who called that method and also which was the original request. This is where [stack trace](https://en.wikipedia.org/wiki/Stack_trace) comes in, look at an example below:
@@ -625,7 +699,7 @@ var dict = {
   
   > **NOTE**: it's strongly recommended move to later \`.NET\` versions instead of using \`out of support\` versions like 2.1 or 2.2
   `,
-  "typesense": `
+  typesense: `
   # ⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch
   
   In a daily development process, it's common the need to search a specific term in a large amount of data. The search engine tools came to solve this kind of problem and one of the most famous is called [ElasticSearch](https://github.com/elastic/elasticsearch). If you have already worked with ElasticSearch you probably know that it's such a powerful tool, but it's also complex and has a steep learning curve. For example, doing an in-house deployment of ElasticSearch you will face a high production ops overhead dealing with over 3000 configuration parameters.
@@ -808,6 +882,6 @@ var dict = {
   
   Now, I want to know your opinion, if you're using \`Typesense\` in production [let the community knows](https://github.com/typesense/typesense/issues/140)! If you got here and liked the article content, let me know by reacting to the current post. You can also open a discussion below, I'll try to answer it soon. On the other hand, if you think that I said something wrong, please open an issue in the [article's github repo](https://github.com/luizhlelis/typesense-playground).
   
-  `
-}
-export default dict
+  `,
+};
+export default dict;
