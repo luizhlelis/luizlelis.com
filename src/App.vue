@@ -127,7 +127,7 @@ body {
 } */
 
 .v-main {
-  background-image: url("~@/assets/bgMain.png");
+  background-image: url("~@/assets/bg-main-waves.png");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;

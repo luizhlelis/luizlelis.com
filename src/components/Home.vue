@@ -177,19 +177,19 @@ export default {
         1: [
           {
             img: require("@/assets/blog-image-typesense.png"),
-            title: "dev.to",
+            title: "",
             text: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
             link: "/blog/typesense"
           },
           {
             img: require("@/assets/blog-image-trace.png"),
-            title: "dev.to",
+            title: "",
             text: "Using W3C Trace Context standard in distributed tracing",
             link: "/blog/tracecontext"
           },
           {
             img: require("@/assets/blog-image-integration-test.png"),
-            title: "snippets",
+            title: "",
             text: "How to Run Integration Tests Using Docker Compose and .NET 5",
             link: "https://blog.avenuecode.com/how-to-run-integration-tests-using-docker-compose-and-.net-5"
           },
@@ -197,19 +197,19 @@ export default {
         2: [
           {
             img: require("@/assets/blog-image-go-self-signed.png"),
-            title: "dev.to",
+            title: "",
             text: "🔐 Building a self signed server in golang",
             link: "/blog/go-lang-self-signed"
           },
           {
             img: require("@/assets/blog-image-docker-hub.png"),
-            title: "dev.to",
+            title: "",
             text: ".NET Core 2.1 container images were deleted from Docker Hub!",
             link: "/blog/dotnet-docker-images-deleted"
           },
           {
             img: require("@/assets/blog-image-trace-csharp.png"),
-            title: "dev.to",
+            title: "",
             text: "[c#] Using W3C Trace Context standard in distributed tracing",
             link: "/blog/tracecontext-dotnet"
           },
