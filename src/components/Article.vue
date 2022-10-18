@@ -6,18 +6,21 @@
       :src="imgRef">
     </v-img>
     <markdown-it-vue class="markdown-it md-body" :content="content" />
+    <github-comment />
   </div>
 </template>
 
 <script>
   import MarkdownItVue from 'markdown-it-vue'
   import ArticleMd from "../../public/articles.js"
+  import GithubComment from "./GithubComment.vue"
 
   import 'markdown-it-vue/dist/markdown-it-vue.css'
   export default {
     name: 'Article',
     components: {
-      MarkdownItVue
+      MarkdownItVue,
+      GithubComment
     },
     props: {
       articleId: {
