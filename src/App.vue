@@ -1,18 +1,13 @@
 <template>
-  <!-- <Waterfall /> -->
   <v-app>
     <Navigation :color="color" :flat="flat" />
     <router-view></router-view>
+    <v-main>
+      <Blog v-show="isHomePage" />
+      <Videos v-show="isHomePage" />
+    </v-main>
     <v-scale-transition>
-      <v-btn
-        fab
-        v-show="fab"
-        v-scroll="onScroll"
-        fixed
-        bottom
-        right
-        color="#ff0266"
-        @click="toTop">
+      <v-btn fab v-show="fab" v-scroll="onScroll" fixed bottom right color="#ff0266" @click="toTop">
         <v-icon>mdi-arrow-up</v-icon>
       </v-btn>
     </v-scale-transition>
@@ -21,25 +16,19 @@
 </template>
 
 <script>
-// import Waterfall from './components/Waterfall.vue'
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-// import Home from "./components/Home";
-// import About from "./components/About";
-// import Posts from "./components/Posts";
-// import Contact from "./components/Contact";
+import Blog from "./components/Blog.vue";
+import Videos from "./components/Videos.vue";
 
 export default {
   name: 'App',
 
   components: {
-    // Waterfall,
     Navigation,
     Footer,
-    // Home,
-    // About,
-    // Posts,
-    // Contact
+    Blog,
+    Videos
   },
 
   data: () => ({
@@ -77,7 +66,13 @@ export default {
     },
     toTop() {
       this.$vuetify.goTo(0);
-    },
+    }
+  },
+
+  computed: {
+    isHomePage() {
+      return this.$route.path == "/";
+    }
   }
 }
 </script>
@@ -85,7 +80,8 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Roboto&display=swap');
 
-html, body {
+html,
+body {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -106,30 +102,5 @@ h3 {
 
 #app {
   font-family: 'Roboto', sans-serif;
-}
-
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-}
-
-body {
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-} */
-
-.v-main {
-  background-image: url("~@/assets/bgMain.png");
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
 }
 </style>
