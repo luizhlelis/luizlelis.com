@@ -10,8 +10,8 @@
       <v-divider />
 
       <v-list dense>
-        <v-list-item :inactive="true" v-for="([icon, text, link], i) in items" :key="i" link
-          @click="$vuetify.goTo(link); drawer = !drawer" to="/">
+        <v-list-item :inactive="true" v-for="([icon, text, link], i) in items" :key="i" link to="/"
+          @click="redirectToRightPath(link); drawer = !drawer">
           <v-list-item-icon class="justify-center">
             <v-icon class="text-border-black">{{ icon }}</v-icon>
           </v-list-item-icon>
@@ -21,7 +21,7 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
+        <v-list-item v-show="isHomePage" v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark; drawer = !drawer">
           <v-list-item-icon class="justify-center">
             <v-icon v-show="$vuetify.theme.isDark" class="text-border-black">mdi-lightbulb-off</v-icon>
             <v-icon v-show="!$vuetify.theme.isDark" class="text-border-black">mdi-lightbulb-on</v-icon>
@@ -43,17 +43,22 @@
       <v-spacer />
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="mr-4" v-if="isXs" />
       <div v-else>
-        <v-btn style="color: transparent;" text v-on:click="$vuetify.goTo('#home')" to="/">
+        <v-btn style="color: transparent;" text @click="$vuetify.goTo('#home')" to="/">
           <span class="mr-2">
             <h3 class="accent--text text-border-white">Home</h3>
           </span>
         </v-btn>
-        <v-btn style="color: transparent;" text @click="$vuetify.goTo('#blog')">
+        <v-btn style="color: transparent;" text @click="$vuetify.goTo('#blog')" to="/">
           <span class="mr-2">
             <h3 class="accent--text text-border-white">Blog</h3>
           </span>
         </v-btn>
-        <v-btn text v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
+        <v-btn style="color: transparent;" text @click="$vuetify.goTo('#videos')" to="/">
+          <span class="mr-2">
+            <h3 class="accent--text text-border-white">Videos</h3>
+          </span>
+        </v-btn>
+        <v-btn v-show="isHomePage" text v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
           <span class="mr-2">
             <v-icon v-show="$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-off</v-icon>
             <v-icon v-show="!$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-on</v-icon>
@@ -78,9 +83,8 @@ export default {
     isXs: false,
     items: [
       ["mdi-home", "Home", "#home"],
-      // ["mdi-information-outline", "About", "#about"],
       ["mdi-book-edit-outline", "Blog", "#blog"],
-      // ["mdi-email-outline", "Contact", "#contact"]
+      ["mdi-video", "Videos", "#videos"]
     ],
   }),
   props: {
@@ -90,6 +94,11 @@ export default {
   methods: {
     onResize() {
       this.isXs = window.innerWidth < 850;
+    },
+    redirectToRightPath(link) {
+      if (this.$route.path != "/")
+        this.$router.push('/')
+      this.$vuetify.goTo(link)
     }
   },
 
@@ -123,6 +132,9 @@ export default {
       }
       return ''
     },
+    isHomePage() {
+      return this.$route.path == "/";
+    }
   },
 };
 </script>

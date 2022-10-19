@@ -15,7 +15,7 @@
                 C#, Python, Go, JavaScript, AWS, Azure Cloud and
                 Azure Devops.
               </body>
-              <v-btn :style="getThemeTextColor" rounded outlined large dark @click="$vuetify.goTo('#articles')"
+              <v-btn :style="getThemeTextColor" rounded outlined large dark @click="$vuetify.goTo('#home')"
                 class="mt-5">
 
                 <body :style="getThemeTextColor" :class="fontSizeBody">
@@ -52,12 +52,6 @@
         <v-img v-show="!$vuetify.theme.isDark" src="@/assets/border-waves-white.svg" />
       </div>
     </v-parallax>
-    <v-dialog v-model="dialog" max-width="640px">
-      <v-card>
-        <youtube :video-id="videoId" :host="'https://youtube.com'" :player-height="heightPlayerSize"
-          :player-width="widthPlayerSize"></youtube>
-      </v-card>
-    </v-dialog>
   </section>
 </template>
 

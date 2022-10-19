@@ -1,16 +1,16 @@
 import Vue from "vue";
 import App from "./App.vue";
 import vuetify from "./plugins/vuetify";
-import VueYouTubeEmbed from "vue-youtube-embed";
 import Router from "vue-router";
 import Home from "./components/Home.vue";
 import Article from "./components/Article.vue";
 import NotFound from "./components/NotFound.vue";
+import VueYoutube from "vue-youtube";
 
-Vue.use(VueYouTubeEmbed);
 Vue.config.productionTip = false;
 
 Vue.use(Router);
+Vue.use(VueYoutube);
 
 const router = new Router({
   mode: "history",

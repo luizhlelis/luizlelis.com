@@ -19,7 +19,7 @@
     "vue": "^2.6.12",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.5.3",
-    "vue-youtube-embed": "^2.2.2",
+    "vue-youtube": "^1.4.0",
     "vuetify": "^2.5.8",
     "vuetify-loader": "^1.7.2"
   },

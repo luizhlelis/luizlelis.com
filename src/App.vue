@@ -3,7 +3,8 @@
     <Navigation :color="color" :flat="flat" />
     <router-view></router-view>
     <v-main>
-      <Blog />
+      <Blog v-show="isHomePage" />
+      <Videos v-show="isHomePage" />
     </v-main>
     <v-scale-transition>
       <v-btn fab v-show="fab" v-scroll="onScroll" fixed bottom right color="#ff0266" @click="toTop">
@@ -18,6 +19,7 @@
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Blog from "./components/Blog.vue";
+import Videos from "./components/Videos.vue";
 
 export default {
   name: 'App',
@@ -25,7 +27,8 @@ export default {
   components: {
     Navigation,
     Footer,
-    Blog
+    Blog,
+    Videos
   },
 
   data: () => ({
@@ -63,7 +66,13 @@ export default {
     },
     toTop() {
       this.$vuetify.goTo(0);
-    },
+    }
+  },
+
+  computed: {
+    isHomePage() {
+      return this.$route.path == "/";
+    }
   }
 }
 </script>
