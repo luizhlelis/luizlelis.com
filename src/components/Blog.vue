@@ -23,7 +23,7 @@
                         </v-col>
                     </v-row>
                     <div class="text-center custom-pagination">
-                        <v-pagination v-model="page" @input="next" :length="2" circle light></v-pagination>
+                        <v-pagination v-model="page" @input="next" :length="3" circle light></v-pagination>
                     </div>
                 </v-col>
             </v-row>
@@ -88,7 +88,7 @@ export default {
                         title: "",
                         text: ".NET Core 2.1 container images were deleted from Docker Hub!",
                         link: "/blog/dotnet-docker-images-deleted"
-                    }
+                    },
                 ],
                 3: [
                     {
@@ -96,7 +96,7 @@ export default {
                         title: "",
                         text: "[c#] Using W3C Trace Context standard in distributed tracing",
                         link: "/blog/tracecontext-dotnet"
-                    },
+                    }
                 ]
             }
         }
