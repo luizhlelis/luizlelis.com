@@ -46,22 +46,47 @@
 <style>
 
   .markdown-body .highlight pre, .markdown-body pre {
-    background-color: #1E1E1E;
+    background-color: #3c4a5d;
   }
 
   .markdown-body li {
-    color: white;
+    color: rgb(128, 128, 128);
   }
 
   .markdown-body a {
-    color: #0366d6 !important;
+    color: rgb(88, 166, 255) !important;
     text-decoration: none;
   }
 
   .theme--dark.v-application code {
-    background-color: transparent;
+    background-color: #3c4a5d;
     color: lightgray;
   }
+
+  .theme--light.v-application code {
+    background-color: #3c4a5d;
+    color: lightgray;
+  }
+
+  .hljs-doctag, .hljs-formula, .hljs-keyword {
+    color: #ff7b72;
+  }
+
+  .hljs-addition, .hljs-attribute, .hljs-meta-string, .hljs-regexp, .hljs-string {
+    color: #a5d6ff;
+  }
+
+  .hljs-bullet, .hljs-link, .hljs-meta, .hljs-selector-id, .hljs-symbol, .hljs-title {
+    color: #d2a8ff;
+  }
+
+  .hljs-attr, .hljs-number, .hljs-selector-attr, .hljs-selector-class, .hljs-selector-pseudo, .hljs-template-variable, .hljs-type, .hljs-variable {
+    color: #7ee787;
+  }
+
+  .hljs-built_in, .hljs-class .hljs-title {
+    color: #d2a8ff;
+}
 
   @media (min-width: 600px)
   {
@@ -71,27 +96,29 @@
       margin-top: 150px;
       margin-left: 100px;
       margin-right: 100px;
+      margin-left: 184px;
+      margin-right: 184px;
     }
 
     .markdown-it {
       margin-top: 50px;
-      margin-left: 100px;
-      margin-right: 100px;
+      margin-left: 184px;
+      margin-right: 184px;
       margin-bottom: 50px;
     }
 
     .markdown-body h1 {
-      color: white;
+      color: rgb(128, 128, 128);
       font-size: 3rem;
     }
 
     .markdown-body h2 {
-      color: white;
+      color: rgb(128, 128, 128);
       font-size: 1.5rem;
     }
     
     .markdown-body p, .markdown-body h3 {
-      color: white;
+      color: rgb(128, 128, 128);
       font-size: 1.25rem;
     }
   }
@@ -114,17 +141,17 @@
     }
 
     .markdown-body h1 {
-      color: white;
+      color: rgb(128, 128, 128);
       font-size: 1.875rem;
     }
 
     .markdown-body h2 {
-      color: white;
+      color: rgb(128, 128, 128);
       font-size: 1.25rem;
     }
     
     .markdown-body p, .markdown-body h3 {
-      color: white;
+      color: rgb(128, 128, 128);
       font-size: 1.125rem;
     }
   }

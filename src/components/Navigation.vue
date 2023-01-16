@@ -21,7 +21,7 @@
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item v-show="isHomePage" v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark; drawer = !drawer">
+        <v-list-item v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark; drawer = !drawer">
           <v-list-item-icon class="justify-center">
             <v-icon v-show="$vuetify.theme.isDark" class="text-border-black">mdi-lightbulb-off</v-icon>
             <v-icon v-show="!$vuetify.theme.isDark" class="text-border-black">mdi-lightbulb-on</v-icon>
@@ -58,7 +58,7 @@
             <h3 class="accent--text text-border-white">Videos</h3>
           </span>
         </v-btn>
-        <v-btn v-show="isHomePage" text v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
+        <v-btn text v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
           <span class="mr-2">
             <v-icon v-show="$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-off</v-icon>
             <v-icon v-show="!$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-on</v-icon>
@@ -131,9 +131,6 @@ export default {
         return 'padding-left: 20px !important; padding-right: 20px !important;'
       }
       return ''
-    },
-    isHomePage() {
-      return this.$route.path == "/";
     }
   },
 };
