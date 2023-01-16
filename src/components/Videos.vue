@@ -7,6 +7,9 @@
         <v-container fluid id="articles" class="mt-2">
             <v-row align="center" justify="center">
                 <v-card class="video-card" shaped :link="false">
+                    <youtube :width="300" video-id="dzkSEr3VHRU" ref="youtube"></youtube>
+                </v-card>
+                <v-card class="video-card" shaped :link="false">
                     <youtube :width="300" video-id="rqade8-xjyc" ref="youtube"></youtube>
                 </v-card>
                 <v-card class="video-card" shaped :link="false">
