@@ -58,6 +58,11 @@
             <h3 class="accent--text text-border-white">Videos</h3>
           </span>
         </v-btn>
+        <v-btn style="color: transparent;" text @click="$vuetify.goTo('#badges')" to="/">
+          <span class="mr-2">
+            <h3 class="accent--text text-border-white">Badges</h3>
+          </span>
+        </v-btn>
         <v-btn text v-on:click="$vuetify.theme.isDark=!$vuetify.theme.isDark">
           <span class="mr-2">
             <v-icon v-show="$vuetify.theme.isDark" class="accent--text text-border-white">mdi-lightbulb-off</v-icon>
@@ -84,7 +89,8 @@ export default {
     items: [
       ["mdi-home", "Home", "#home"],
       ["mdi-book-edit-outline", "Blog", "#blog"],
-      ["mdi-video", "Videos", "#videos"]
+      ["mdi-video", "Videos", "#videos"],
+      ["mdi-police-badge", "Badges", "#badges"]
     ],
   }),
   props: {

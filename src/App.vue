@@ -5,6 +5,7 @@
     <v-main>
       <Blog v-show="isHomePage" />
       <Videos v-show="isHomePage" />
+      <Badges v-show="isHomePage" />
     </v-main>
     <v-scale-transition>
       <v-btn fab v-show="fab" v-scroll="onScroll" fixed bottom right color="#ff0266" @click="toTop">
@@ -20,6 +21,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Blog from "./components/Blog.vue";
 import Videos from "./components/Videos.vue";
+import Badges from "./components/Badges.vue";
 
 export default {
   name: 'App',
@@ -28,7 +30,8 @@ export default {
     Navigation,
     Footer,
     Blog,
-    Videos
+    Videos,
+    Badges
   },
 
   data: () => ({
