@@ -227,6 +227,7 @@ export default {
 }
 
 .svg-border-waves .v-image {
+  top: 630px;
   position: absolute;
   bottom: 0;
   left: 0;
