@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" app temporary dark src="@/assets/navigation.png">
+    <v-navigation-drawer v-model="drawer" app temporary dark src="@/assets/navigation.webp">
       <v-list>
         <v-list-item>
           <Logo />

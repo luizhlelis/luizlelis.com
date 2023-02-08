@@ -37,7 +37,7 @@ const router = new Router({
       props: {
         articleId: "tracecontext",
         imgRef:
-          "https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/trace-context-cover-image.png",
+          "https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/trace-context-cover-image.webp",
       },
     },
     {
@@ -47,7 +47,7 @@ const router = new Router({
       props: {
         articleId: "tracecontext-dotnet",
         imgRef:
-          "https://raw.githubusercontent.com/luizhlelis/dotnet-trace-context/main/doc/trace-context-cover-image.png",
+          "https://raw.githubusercontent.com/luizhlelis/dotnet-trace-context/main/doc/trace-context-cover-image.webp",
       },
     },
     {
@@ -57,7 +57,7 @@ const router = new Router({
       props: {
         articleId: "typesense",
         imgRef:
-          "https://raw.githubusercontent.com/luizhlelis/typesense-playground/main/doc/article-hero.png",
+          "https://raw.githubusercontent.com/luizhlelis/typesense-playground/main/doc/article-hero.webp",
       },
     },
     {
@@ -67,7 +67,7 @@ const router = new Router({
       props: {
         articleId: "go-lang-self-signed",
         imgRef:
-          "https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/article-hero.png",
+          "https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/article-hero.webp",
       },
     },
     {
@@ -77,7 +77,7 @@ const router = new Router({
       props: {
         articleId: "outbox-pattern",
         imgRef:
-          "https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/outbox.png",
+          "https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/outbox.webp",
       },
     },
     {

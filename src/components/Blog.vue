@@ -52,19 +52,19 @@ export default {
             articles: {
                 1: [
                     {
-                        img: require("@/assets/blog-image-outbox.png"),
+                        img: require("@/assets/blog-image-outbox.webp"),
                         title: "",
                         text: "📦 Data consistency, outbox pattern and idempotency in a microservice architecture",
                         link: "/blog/outbox-pattern"
                     },
                     {
-                        img: require("@/assets/blog-image-typesense.png"),
+                        img: require("@/assets/blog-image-typesense.webp"),
                         title: "",
                         text: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
                         link: "/blog/typesense"
                     },
                     {
-                        img: require("@/assets/blog-image-trace.png"),
+                        img: require("@/assets/blog-image-trace.webp"),
                         title: "",
                         text: "Using W3C Trace Context standard in distributed tracing",
                         link: "/blog/tracecontext"
@@ -72,19 +72,19 @@ export default {
                 ],
                 2: [
                     {
-                        img: require("@/assets/blog-image-integration-test.png"),
+                        img: require("@/assets/blog-image-integration-test.webp"),
                         title: "",
                         text: "How to Run Integration Tests Using Docker Compose and .NET 5",
                         link: "https://blog.avenuecode.com/how-to-run-integration-tests-using-docker-compose-and-.net-5"
                     },
                     {
-                        img: require("@/assets/blog-image-go-self-signed.png"),
+                        img: require("@/assets/blog-image-go-self-signed.webp"),
                         title: "",
                         text: "🔐 Building a self signed server in golang",
                         link: "/blog/go-lang-self-signed"
                     },
                     {
-                        img: require("@/assets/blog-image-docker-hub.png"),
+                        img: require("@/assets/blog-image-docker-hub.webp"),
                         title: "",
                         text: ".NET Core 2.1 container images were deleted from Docker Hub!",
                         link: "/blog/dotnet-docker-images-deleted"
@@ -92,7 +92,7 @@ export default {
                 ],
                 3: [
                     {
-                        img: require("@/assets/blog-image-trace-csharp.png"),
+                        img: require("@/assets/blog-image-trace-csharp.webp"),
                         title: "",
                         text: "[c#] Using W3C Trace Context standard in distributed tracing",
                         link: "/blog/tracecontext-dotnet"

@@ -15,11 +15,11 @@ var dict = {
   
   ### [Consistency] Choose the strong consistency returning an error
   
-  ![consistent-system](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/consistent-system.png)
+  ![consistent-system](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/consistent-system.webp)
   
   ### [Availability] Giving up the strong consistency returning to the client that eventually the request will be processed
   
-  ![available-system](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/available-system.png)
+  ![available-system](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/available-system.webp)
   
   The pattern that will be discussed in this article is an eventual consistency pattern. So, the outbox pattern gives up the solid consistency for focus on availability.
   
@@ -35,7 +35,7 @@ var dict = {
   - If something wrong happen, the \`Message Relay\` process retry to send the event a few times until the set limit been reached;
   - The messages/events are stored in the consumer side too.
   
-  ![outbox-pattern](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/outbox-pattern.png)
+  ![outbox-pattern](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/outbox-pattern.webp)
   
   > **Edited version from:** https://github.com/dotnetcore/CAP
   
@@ -50,7 +50,7 @@ var dict = {
   
   > **NOTE**: that could be even worse in a multiprocessing scenario
   
-  ![idempotency](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/idempotency.png)
+  ![idempotency](https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/idempotency.webp)
   
   To turn your consumer in an idempotent one, you could register in the database the message/event ID that has been rightly processed. When the consumer is processing a new message, it would be able detect and discard duplicates.
   
@@ -98,7 +98,7 @@ var dict = {
   
   To proceed with the next steps, you're gonna need to clone [this github repo](https://github.com/luizhlelis/go-lang-https-self-signed). The current example is composed by a server and a client called \`https-server\` and \`https-client\` respectively. Each one runs in its specific container, the server provides a REST API written in golang and is responsible to create the self signed certificate. That certificate protects two hostnames: \`localhost\` and \`https-server\`, that multi-domain approach is possible thanks to the [Subject Alternative Names](https://www.digicert.com/faq/subject-alternative-name.htm) (SANs). Take a look at the diagram below that represents the current example:
   
-  ![certificate-diagram](https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/cert-diagram.png)
+  ![certificate-diagram](https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/cert-diagram.webp)
   
   As you can see above, the server generates the certificate and the clients trust that certificate (client container or a client running in the host). So, to up the client and server containers, run the command below:
   
@@ -176,15 +176,15 @@ var dict = {
   
   If you call a server endpoint before trusting the server certificate, you'll get an error like the following in your browser:
   
-  ![before-trust](https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/before-trust.png)
+  ![before-trust](https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/before-trust.webp)
   
   after trusting the certificate locally, you'll get the response with a 200 Ok status code:
   
-  ![after-trust](https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/after-trust.png)
+  ![after-trust](https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/after-trust.webp)
   
   if you expand the certificate, you will see all the domains secured by the self-signed certificate:
   
-  ![certificate-sans](https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/certificate-sans.png)
+  ![certificate-sans](https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/certificate-sans.webp)
   
   that behavior is also shown in the server stdout, before trusting the certificate there is a handshake error, but after trusting it, the handshake is successful:
   
@@ -221,9 +221,9 @@ var dict = {
   
   The main objective is to propagate a message with \`traceparent\` id throw two APIs and one worker using [W3C trace context](https://www.w3.org/TR/trace-context) standard. The \`first-api\` calls the \`second-api\` by a http call while the \`second-api\` has an asynchronous communication with the \`worker\` by a message broker ([rabbitmq](https://www.rabbitmq.com/) was chosen for that). Furthermore, [zipkin](https://zipkin.io/) was the trace system chosen (or \`vendor\` as the standard call it), being responsible for getting the application traces and building the distributed tracing diagram:
   
-  ### <a name="firstfigure"></a>Figure 1 - Distributed trace
+  ### Figure 1 - Distributed trace
   
-  ![Distributed Trace](https://raw.githubusercontent.com/luizhlelis/dotnet-trace-context/main/doc/w3c-trace-context.png)
+  ![Distributed Trace](https://raw.githubusercontent.com/luizhlelis/dotnet-trace-context/main/doc/w3c-trace-context.webp)
   
   The first and second APIs have the [same code base](https://github.com/luizhlelis/dotnet-trace-context/tree/main/src), but they're being deployed in different containers.
   
@@ -243,7 +243,7 @@ var dict = {
   
   The default diagnostics library in \`.NET 5\`, called [System.Diagnostics](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics?view=net-5.0), is already prepared to propagate the context based on W3C TraceContext specification. In previous \`.NET Core\` versions, the context was propagated with a [hierarchical identifier format](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md#id-format) by default. On \`.NET Core 3.0\`, the identifier format setup started to be available, see [this](https://stackoverflow.com/questions/61251914/how-can-i-access-w3c-tracecontext-headers-in-a-net-core-3-1-application/67086305#67086305) stackoverflow question for more information about how to configure w3c's format in previous \`.NET Core\` versions.
   
-  The \`first-api\` and the \`second-api\` showed in [Figure 1](#firstfigure) requires three packages to work properly with \`OpenTelemetry\`:
+  The \`first-api\` and the \`second-api\` showed in \`Figure 1\` requires three packages to work properly with \`OpenTelemetry\`:
   
   \`\`\` csharp
       <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.0.0-rc7" />
@@ -481,7 +481,7 @@ var dict = {
   
   at home page, let the search field empty and type \`RUN QUERY\` to load all traces. Finally, click in your trace, then you'll see a diagram like this:
   
-  ![Zipkin Diagram](https://raw.githubusercontent.com/luizhlelis/dotnet-trace-context/main/doc/zipkin-diagram.png)
+  ![Zipkin Diagram](https://raw.githubusercontent.com/luizhlelis/dotnet-trace-context/main/doc/zipkin-diagram.webp)
   
   ## Conclusion
   
@@ -521,7 +521,7 @@ var dict = {
   
   ### Figure 1 - Distributed trace
   
-  ![distributed-trace](https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/distributed-trace.png)
+  ![distributed-trace](https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/distributed-trace.webp)
   
   just like the \`stack trace\`, every \`Activity\` needs an Id to be identifiable and also needs to know the \`Activity\` Id of who called it. With the purpose of solving this kind of problem, some vendors came up delivering not only the distributed trace message information but also the application performance, the load time, the application's response time, and other stuff. That kind of vendor is called Application Performance Management tools (APM tools) or also trace systems, below are some examples:
   
@@ -567,11 +567,11 @@ var dict = {
   
   > **_NOTE:_** all the fields are encoded as \`hexadecimal\`
   
-  Therefore, applying the trace context concept in an application like the [Figure 1](#figure-1-distributed-trace) will result in the diagram below:
+  Therefore, applying the trace context concept in an application like the \`Figure 1\` will result in the diagram below:
   
   ### Figure 2 - Propagation fields
   
-  ![propagation-fields](https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/w3c-trace-context.png)
+  ![propagation-fields](https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/w3c-trace-context.webp)
   
   note that the \`trace-id\` is an identifier of all the trace, the \`parent-id\` identifies a delimited scope of the whole trace. Moreover, the \`traceparent\` along with the \`tracestate\` have been propagated throughout the trace flow.
   
@@ -636,7 +636,7 @@ var dict = {
   
   ## Trace Context: AMQP protocol
   
-  As displayed in [Figure 2](#figure-2-propagation-fields), in a microservice architecture, it's common to propagate messages throw a broker. For that kind of operation, there is another document that specifies the pattern (in case of using AMQP protocol), is the [Trace Context: AMQP protocol](https://w3c.github.io/trace-context-amqp/).
+  As displayed in \`Figure 2\`, in a microservice architecture, it's common to propagate messages throw a broker. For that kind of operation, there is another document that specifies the pattern (in case of using AMQP protocol), is the [Trace Context: AMQP protocol](https://w3c.github.io/trace-context-amqp/).
   
   The \`Trace Context: AMQP protocol\` is another example of document in the Working Draft (WD) step of the [w3c process](https://www.w3.org/2017/Process-20170301/#working-draft). That standard specifies the trace context fields placement in the message different from the HTTP standard.
   
@@ -644,7 +644,7 @@ var dict = {
   
   ### Figure 3 - AMQP message format
   
-  ![amqp-message-format](https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/amqp-message-format.png)
+  ![amqp-message-format](https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/amqp-message-format.webp)
   
   The reason for the trace context fields placement in the message is that the \`application-properties\` section is defined by the message publisher and the brokers cannot mutate those properties because that section is immutable. On the other hand, the section \`message-annotations\` is designed for message brokers usage. In other words, the fields inside that section can be mutated during the message processing. So it means that in case the need arises to annotate the message inside the middleware as it flows, that must happen in the \`message-annotations\` section, using the fields sent by the publisher in \`application-properties\` as a base.
   

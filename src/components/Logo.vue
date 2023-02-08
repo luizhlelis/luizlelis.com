@@ -1,8 +1,8 @@
 <template>
   <v-row>
     <v-col style="text-align: right; padding-right: 3px;">
-      <img v-show="$vuetify.theme.isDark" src="@/assets/logo-white-and-pink.png" alt="Pink Logo" class="image-logo"/>
-      <img v-show="!$vuetify.theme.isDark" src="@/assets/logo-gray.png" alt="Gray Logo" class="image-logo"/>
+      <img v-show="$vuetify.theme.isDark" src="@/assets/logo-white-and-pink.webp" alt="Pink Logo" class="image-logo"/>
+      <img v-show="!$vuetify.theme.isDark" src="@/assets/logo-gray.webp" alt="Gray Logo" class="image-logo"/>
     </v-col>
     <v-col style="min-height: 50px; min-width:100px; text-align: center; margin-top: 11px;">
       <v-row style="vertical-align: text-bottom;">
