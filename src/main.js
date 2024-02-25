@@ -81,6 +81,16 @@ const router = new Router({
       },
     },
     {
+      path: "/blog/open-telemetry-00",
+      name: "open-telemetry-00",
+      component: Article,
+      props: {
+        articleId: "open-telemetry-00",
+        imgRef:
+          "https://raw.githubusercontent.com/luizhlelis/luizlelis.com/main/src/assets/open-telemetry-00.webp",
+      },
+    },
+    {
       path: "*",
       name: "Not Found",
       component: NotFound,
@@ -92,4 +102,4 @@ new Vue({
   vuetify,
   router,
   render: (h) => h(App),
-}).$mount("#app");
+}).$m

@@ -52,16 +52,16 @@ export default {
             articles: {
                 1: [
                     {
+                        img: require("@/assets/blog-image-open-telemetry-00.webp"),
+                        title: "",
+                        text: "🔭 OpenTelemetry Journey #00 - Introduction to OpenTelemetry",
+                        link: "/blog/open-telemetry-00"
+                    },
+                    {
                         img: require("@/assets/blog-image-outbox.webp"),
                         title: "",
                         text: "📦 Data consistency, outbox pattern and idempotency in a microservice architecture",
                         link: "/blog/outbox-pattern"
-                    },
-                    {
-                        img: require("@/assets/blog-image-typesense.webp"),
-                        title: "",
-                        text: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
-                        link: "/blog/typesense"
                     },
                     {
                         img: require("@/assets/blog-image-trace.webp"),
@@ -96,7 +96,13 @@ export default {
                         title: "",
                         text: "[c#] Using W3C Trace Context standard in distributed tracing",
                         link: "/blog/tracecontext-dotnet"
-                    }
+                    },
+                    {
+                        img: require("@/assets/blog-image-typesense.webp"),
+                        title: "",
+                        text: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
+                        link: "/blog/typesense"
+                    },
                 ]
             }
         }

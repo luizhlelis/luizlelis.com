@@ -10,10 +10,9 @@
               <h2 :style="getThemeTextColor" :class="fontSizeH2">Software Engineer</h2>
 
               <body :style="getThemeTextColor" :class="fontSizeBody">
-                Currently working with back-end development
+                Currently working with back-end development, DevOps
                 and infrastructure. Main technologies and languages:
-                C#, Python, Go, JavaScript, AWS, Azure Cloud and
-                Azure Devops.
+                C#, Python, Go, JavaScript, AWS, Azure Cloud.
               </body>
             </v-col>
             <v-col cols="12" md="6" xl="4" class="hidden-sm-and-down"> </v-col>

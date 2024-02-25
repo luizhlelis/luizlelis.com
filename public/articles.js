@@ -1,4 +1,29 @@
 var dict = {
+  "open-telemetry-00": ` # OpenTelemetry Journey #00 - Introduction to OpenTelemetry
+
+  The current article is the first from a series of posts about OpenTelemetry. The goal is to provide a comprehensive guide to understand and use OpenTelemetry in your applications.
+  
+  First things first, nothing better than using the [definition from the official website](https://opentelemetry.io/docs/what-is-opentelemetry/) to start this journey:
+  
+  > OpenTelemetry is an Observability framework and toolkit designed to create and manage telemetry data such as traces, metrics, and logs.
+  
+  It means that the OpenTelemetry project provides not only a [specification](https://github.com/open-telemetry/opentelemetry-specification) to define the contract between the applications, collectors, and telemetry databases, but also a set of APIs, SDKs, and tools like instrumentation libraries (for different languages), collectors, operators, etc. OpenTelemetry is open-source and vendor-agnostic, so the project is not tied to any specific vendor or cloud provider.
+  
+  OpenTelemetry it's a result from the merge of two important projects that are now archived: [OpenTracing](https://opentracing.io/) and [OpenCensus](https://opencensus.io/). The project is incubated in [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/projects/) and has a strong community behind it. The CNCF is part of the Linux Foundation and hosts critical components of the global technology infrastructure, including Kubernetes and Prometheus. Currently, OpenTelemetry is the second most active project in terms of contributors in CNCF, only behind Kubernetes. As the project is part of a foundation, it has no commercial interests and is governed by a community of contributors, it means that the project license will not change easily (like happened with important open-source tools like [Elastic](https://www.elastic.co/blog/doubling-down-on-open)) and the project will not be abandoned by a single company.
+  
+  ## Why OpenTelemetry?
+  
+  There are several reasons to use OpenTelemetry in your applications, but I will list some of the most important:
+  
+  - **Vendor-agnostic**: OpenTelemetry is not tied to any specific vendor or cloud provider, so you can use it in any environment, from on-premises to cloud providers;
+  - **Open-source**: OpenTelemetry is open-source and has a strong community behind it, so you can trust that the license will not change easily and the project will not be abandoned by a single company;
+  - **Standardization**: OpenTelemetry provides a standard way to collect, process and export telemetry data, so you can use the same instrumentation libraries, collectors, and operators in different environments;
+  
+  Maybe, you are asking yourself: "But I already had instrumented my applications with vendor-specific libraries and I'm using their agents and monitoring tools, why should I change to OpenTelemetry?". The answer is: maybe you're right and I don't want to encourage you to update the way how you are doing observability in your applications, that's a hard and complex task. But, if you are starting from scratch or you are not happy with your current observability infrastructure, OpenTelemetry is the best choice, independently of the backend telemetry tool that you are using. I would like to invite you to take a look at the number of exporters available in the [collector contrib section](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter), if your backend tracing tool is not there, probably it's already using the [Open Telemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-proto/blob/main/docs/specification.md) and you will be able to use the [core collector](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlpexporter). Otherwise, you should consider changing your backend telemetry tool or contributing to the project creating a new exporter.
+  
+  I had mentioned some concepts and terms in this article that I will explain in the next posts, so don't worry if you didn't understand everything. Hope you enjoyed the reading and see you in the next post!
+  `,
+
   "outbox-pattern": `# 📦 Data consistency, outbox pattern and idempotency in a microservice architecture
 
   ## CAP Theorem
