@@ -52,6 +52,12 @@ export default {
             articles: {
                 1: [
                     {
+                        img: require("@/assets/blog-image-open-telemetry-01.webp"),
+                        title: "",
+                        text: "🔭 OpenTelemetry Journey #01 - Important concepts",
+                        link: "/blog/open-telemetry-01"
+                    },
+                    {
                         img: require("@/assets/blog-image-open-telemetry-00.webp"),
                         title: "",
                         text: "🔭 OpenTelemetry Journey #00 - Introduction to OpenTelemetry",
@@ -63,14 +69,14 @@ export default {
                         text: "📦 Data consistency, outbox pattern and idempotency in a microservice architecture",
                         link: "/blog/outbox-pattern"
                     },
+                ],
+                2: [
                     {
                         img: require("@/assets/blog-image-trace.webp"),
                         title: "",
                         text: "Using W3C Trace Context standard in distributed tracing",
                         link: "/blog/tracecontext"
-                    }
-                ],
-                2: [
+                    },
                     {
                         img: require("@/assets/blog-image-integration-test.webp"),
                         title: "",
@@ -83,14 +89,14 @@ export default {
                         text: "🔐 Building a self signed server in golang",
                         link: "/blog/go-lang-self-signed"
                     },
+                ],
+                3: [
                     {
                         img: require("@/assets/blog-image-docker-hub.webp"),
                         title: "",
                         text: ".NET Core 2.1 container images were deleted from Docker Hub!",
                         link: "/blog/dotnet-docker-images-deleted"
                     },
-                ],
-                3: [
                     {
                         img: require("@/assets/blog-image-trace-csharp.webp"),
                         title: "",

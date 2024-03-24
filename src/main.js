@@ -91,6 +91,16 @@ const router = new Router({
       },
     },
     {
+      path: "/blog/open-telemetry-01",
+      name: "open-telemetry-01",
+      component: Article,
+      props: {
+        articleId: "open-telemetry-01",
+        imgRef:
+          "https://raw.githubusercontent.com/luizhlelis/luizlelis.com/main/src/assets/open-telemetry-00.webp",
+      },
+    },
+    {
       path: "*",
       name: "Not Found",
       component: NotFound,
