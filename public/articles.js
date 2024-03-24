@@ -5,7 +5,7 @@ var dict = {
   
   ## What is Observability?
   
-  In control theory, observability is a measure of how well internal states of a system can be inferred from knowledge of its external outputs. Making a relationship with software systems, observability is the ability to understand the internal state of a system by examining telemetry data. This telemetry data is what we call [signals](#what-are-signals).
+  In control theory, observability is a measure of how well the internal states of a system can be inferred from knowledge of its external outputs. Making a relationship with software systems, observability is the ability to understand the internal state of a system by examining telemetry data. This telemetry data is what we call [signals](#what-are-signals).
   
   In order to understand the internal state of a system, the application must be properly instrumented to emit signals enough to provide a clear picture of what is happening.
   
@@ -19,13 +19,13 @@ var dict = {
   
   ## Spans
   
-  A span represents a single operation, also known as a unit of work, from a distributed transaction. It is composed of a name, a start time and other time related data, structured log data and metadata (also known as span attributes) that can provide additional information to the tracked operation.
+  A span represents a single operation, also known as a unit of work, from a distributed transaction. It is composed of a name, a start time and other time-related data, structured log data and metadata (also known as span attributes) that can provide additional information to the tracked operation.
   
   ![Spans](https://raw.githubusercontent.com/luizhlelis/luizlelis.com/main/src/assets/span.webp)
   
   ## What are Signals?
   
-  Signals are outputs from a system that can be used to understand its internal state. Currently, OpenTelemetry supports traces, metrics, logs and baggage (there is an ongoing effort to [support profiling](https://opentelemetry.io/blog/2024/opentelemetry-announced-support-for-profiling/) as as well).
+  Signals are outputs from a system that can be used to understand its internal state. Currently, OpenTelemetry supports traces, metrics, logs and baggage (there is an ongoing effort to [support profiling](https://opentelemetry.io/blog/2024/opentelemetry-announced-support-for-profiling/) as well).
   
   ### Traces
   
@@ -33,13 +33,13 @@ var dict = {
   
   ### Metrics
   
-  Metrics represents a measurement captured at runtime. They are the most important indicators of availability, performance and resource usage of a system. Some important examples of metrics are: throughput, response time, error rate, CPU utilization, Memory utilization, etc.
+  Metrics represent a measurement captured at runtime. They are the most important indicators of availability, performance and resource usage of a system. Some important examples of metrics are: throughput, response time, error rate, CPU utilization, Memory utilization, etc.
   
   ### Logs
   
   Maybe this is the most familiar signal for developers. Logs are text records with a timestamp that can be used to understand the behavior of a system. They are useful to understand the context of a specific operation.
   
-  OpenTelemetry works different approach to handle this signal. As there are already many logging libraries available, OpenTelemetry acts as a bridge between those logs solutions and the OpenTelemetry ecosystem.
+  OpenTelemetry uses a different approach to handle this signal. As there are already many logging libraries available, OpenTelemetry acts as a bridge between those logs solutions and the OpenTelemetry ecosystem.
   
   ### Baggage
   
@@ -59,7 +59,7 @@ var dict = {
   
   Zero-code approach, also known as automatic instrumentation, allows you to add observability to your application without the need to write code. This approach is more straightforward and less error-prone, but it is less flexible than code-based instrumentation. In this approach, the OpenTelemetry capabilities are added to your application as an agent or agent-like installation.
   
-  Maybe you are asking yourself: "How the zero-code instrumentation works?". The zero-code instrumentation mechanisms may differ by language, ranging from bytecode manipulation, monkey patching, or eBPF to inject calls to the OpenTelemetry API and SDK into your application.  Currently, the automatic instrumentation is available for the following languages:
+  Maybe you are asking yourself: "How does the zero-code instrumentation work?". The zero-code instrumentation mechanisms may differ by language, ranging from bytecode manipulation, monkey patching, or eBPF to inject calls to the OpenTelemetry API and SDK into your application.  Currently, the automatic instrumentation is available for the following languages:
   
   - [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation)
   - [Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation)
