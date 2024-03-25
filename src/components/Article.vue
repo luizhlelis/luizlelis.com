@@ -30,6 +30,46 @@
       imgRef: {
         type: String,
         required: true
+      },
+      metaTitle: {
+        type: String,
+        required: true
+      },
+      metaDescription: {
+        type: String,
+        required: true
+      },
+    },
+    metaInfo() {
+      return {
+        title: this.metaTitle,
+        meta: [
+        {
+          vmid: "description",
+          name: "description",
+          content: this.metaDescription,
+        },
+        {
+          vmid: "og:title",
+          property: "og:title",
+          content: this.metaTitle,
+        },
+        {
+          vmid: "og:description",
+          property: "og:description",
+          content: this.metaDescription,
+        },
+        {
+          vmid: "og:url",
+          property: "og:url",
+          content: "https://luizlelis.com/" + this.articleId,
+        },
+        {
+          vmid: "og:image",
+          property: "og:image",
+          content: this.imgRef,
+        },
+      ]
       }
     },
     data () {

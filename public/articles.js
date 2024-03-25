@@ -1,5 +1,5 @@
 var dict = {
-  "open-telemetry-01": ` # OpenTelemetry Journey #01 - Important concepts
+  "open-telemetry-01": ` # 🔭 OpenTelemetry Journey #01 - Important concepts
 
   First of all, let's start with the basics. There are some important concepts to be clarified before we dive into the OpenTelemetry world. The vast majority of the naming conventions and concepts are from projects and papers that inspired OpenTelemetry, such as [OpenTracing](https://opentracing.io/), [OpenCensus](https://opencensus.io/) and [Dapper](https://research.google/pubs/dapper-a-large-scale-distributed-systems-tracing-infrastructure/).
   
@@ -73,7 +73,7 @@ var dict = {
   In this article, we covered some important concepts that are essential to understand before diving into the OpenTelemetry world. We talked about observability, context propagation, spans, signals, and instrumentation. In the next articles, we will dive deeper into the OpenTelemetry ecosystem, exploring the OpenTelemetry Collector and the observability data pipeline. If you have any questions or suggestions, please let me know in the comments below.  
   `,
 
-  "open-telemetry-00": ` # OpenTelemetry Journey #00 - Introduction to OpenTelemetry
+  "open-telemetry-00": ` # 🔭 OpenTelemetry Journey #00 - Introduction to OpenTelemetry
 
   The current article is the first from a series of posts about OpenTelemetry. The goal is to provide a comprehensive guide to understand and use OpenTelemetry in your applications.
   

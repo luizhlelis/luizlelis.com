@@ -6,11 +6,13 @@ import Home from "./components/Home.vue";
 import Article from "./components/Article.vue";
 import NotFound from "./components/NotFound.vue";
 import VueYoutube from "vue-youtube";
+import VueMeta from 'vue-meta'
 
 Vue.config.productionTip = false;
 
 Vue.use(Router);
 Vue.use(VueYoutube);
+Vue.use(VueMeta)
 
 const router = new Router({
   mode: "history",
@@ -28,6 +30,8 @@ const router = new Router({
         articleId: "dotnet-docker-images-deleted",
         imgRef:
           "https://res.cloudinary.com/practicaldev/image/fetch/s--SEo8hwIp--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5lpakyzl6myzgo4eoiby.png",
+        metaTitle: ".NET Core 2.1 container images were deleted from Docker Hub!",
+        metaDescription: ".NET Core 2.1 container images were deleted from Docker Hub!",
       },
     },
     {
@@ -38,6 +42,8 @@ const router = new Router({
         articleId: "tracecontext",
         imgRef:
           "https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/trace-context-cover-image.webp",
+        metaTitle: "Using W3C Trace Context standard in distributed tracing",
+        metaDescription: "Using W3C Trace Context standard in distributed tracing",
       },
     },
     {
@@ -48,6 +54,8 @@ const router = new Router({
         articleId: "tracecontext-dotnet",
         imgRef:
           "https://raw.githubusercontent.com/luizhlelis/dotnet-trace-context/main/doc/trace-context-cover-image.webp",
+        metaTitle: "[c#] Using W3C Trace Context standard in distributed tracing",
+        metaDescription: "[c#] Using W3C Trace Context standard in distributed tracing",
       },
     },
     {
@@ -58,6 +66,8 @@ const router = new Router({
         articleId: "typesense",
         imgRef:
           "https://raw.githubusercontent.com/luizhlelis/typesense-playground/main/doc/article-hero.webp",
+        metaTitle: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
+        metaDescription: "⚡ 🔍 Typesense search engine: an easier-to-use alternative to ElasticSearch",
       },
     },
     {
@@ -68,6 +78,8 @@ const router = new Router({
         articleId: "go-lang-self-signed",
         imgRef:
           "https://raw.githubusercontent.com/luizhlelis/go-lang-https-self-signed/main/docs/article-hero.webp",
+        metaTitle: "🔐 Building a self signed server in golang",
+        metaDescription: "🔐 Building a self signed server in golang",
       },
     },
     {
@@ -78,6 +90,8 @@ const router = new Router({
         articleId: "outbox-pattern",
         imgRef:
           "https://raw.githubusercontent.com/luizhlelis/cap-playground/main/assets/outbox.webp",
+        metaTitle: "📦 Data consistency, outbox pattern and idempotency in a microservice architecture",
+        metaDescription: "📦 Data consistency, outbox pattern and idempotency in a microservice architecture",
       },
     },
     {
@@ -88,6 +102,8 @@ const router = new Router({
         articleId: "open-telemetry-00",
         imgRef:
           "https://raw.githubusercontent.com/luizhlelis/luizlelis.com/main/src/assets/open-telemetry-00.webp",
+        metaTitle: "🔭 OpenTelemetry Journey #00 - Introduction to OpenTelemetry",
+        metaDescription: "🔭 OpenTelemetry Journey #00 - Introduction to OpenTelemetry",
       },
     },
     {
@@ -98,6 +114,8 @@ const router = new Router({
         articleId: "open-telemetry-01",
         imgRef:
           "https://raw.githubusercontent.com/luizhlelis/luizlelis.com/main/src/assets/open-telemetry-00.webp",
+        metaTitle: "🔭 OpenTelemetry Journey #01 - Important concepts",
+        metaDescription: "🔭 OpenTelemetry Journey #01 - Important concepts",
       },
     },
     {
