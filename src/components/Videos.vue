@@ -6,26 +6,64 @@
         </div>
         <v-container fluid id="articles" class="mt-2">
             <v-row align="center" justify="center">
-                <v-card class="video-card" shaped :link="false">
-                    <youtube :width="300" video-id="dzkSEr3VHRU" ref="youtube"></youtube>
-                </v-card>
-                <v-card class="video-card" shaped :link="false">
-                    <youtube :width="300" video-id="rqade8-xjyc" ref="youtube"></youtube>
-                </v-card>
-                <v-card class="video-card" shaped :link="false">
-                    <youtube :width="300" video-id="nntTf9ZCo5Q" ref="youtube"></youtube>
-                </v-card>
-                <v-card class="video-card" shaped :link="false">
-                    <youtube :width="300" video-id="jCjPL_80bpA" ref="youtube"></youtube>
+                <v-card class="video-card" shaped :link="false" v-for="(video, i) in videosPage" :key="i">
+                    <youtube :width="300" :video-id="video.id" :player-vars="video.playerVars" ref="youtube"></youtube>
                 </v-card>
             </v-row>
+            <div class="text-center custom-video-pagination">
+                <v-pagination v-model="page" @input="next" :length="2" circle light></v-pagination>
+            </div>
         </v-container>
     </section>
 </template>
   
 <script>
 export default {
+    mounted() {
+        this.videosPage = this.videos[1];
+    },
+    data() {
+        return {
+            page: 1,
+            videosPage: [],
+            videos: {
+                1: [
+                    {
+                        id: "dzkSEr3VHRU",
+                        playerVars: {}
+                    },
+                    {
+                        id: "rqade8-xjyc",
+                        playerVars: {}
+                    },
+                    {
+                        id: "nntTf9ZCo5Q",
+                        playerVars: {}
+                    },
+                    {
+                        id: "jCjPL_80bpA",
+                        playerVars: {}
+                    }
+                ],
+                2: [
+                    {
+                        id: "7DkrciPeRhI",
+                        playerVars: {
+                            start: 6751
+                        }
+                    },
+                    {
+                        id: "xiEgs6D5qSE",
+                        playerVars: {}
+                    }
+                ]
+            }
+        }
+    },
     methods: {
+        next() {
+            this.videosPage = this.videos[this.page];
+        },
         playVideo() {
             this.$refs.youtube.player.playVideo()
         }
@@ -57,5 +95,9 @@ export default {
     width: 100%;
     margin-bottom: -2px;
     z-index: -1;
+}
+
+.custom-video-pagination li {
+    z-index: 2;
 }
 </style>
