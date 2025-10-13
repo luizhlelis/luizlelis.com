@@ -159,7 +159,7 @@ var dict = {
   
   There are many libraries in \`.NET\` that helps you implementing the \`outbox pattern\` like: [MassTransit](https://github.com/MassTransit/MassTransit), [NServiceBus](https://github.com/Particular/NServiceBus), [CAP](https://github.com/dotnetcore/CAP). Talking about idempotency, a special mention to a specific lib from a big friend that runs on top of \`CAP\` which is called [Ziggurat](https://github.com/rafaelpadovezi/Ziggurat).
   
-  If you've made it this far and enjoyed the article, please let me know by reacting to this post. Feel free to open a discussion below—I'll respond as soon as possible. In the next article, I'll show you the code for building a system using the \`outbox pattern\` and \`idempotency\` with \`.NET\`, \`CAP\`, and \`Ziggurat\`. Hope you enjoy it!
+  If you've made it this far and enjoyed the article, please let me know by reacting to this post. Feel free to open a discussion below, I'll respond as soon as possible. In the next article, I'll show you the code for building a system using the \`outbox pattern\` and \`idempotency\` with \`.NET\`, \`CAP\`, and \`Ziggurat\`. Hope you enjoy it!
   
   ## References
   
@@ -612,7 +612,7 @@ var dict = {
      at Program.Main() in /Users/luizhlelis/Documents/projects/personal/trace-context-w3c/src/system-diagnostics-activity/Program.cs:line 11
   \`\`\`
   
-  From this information, we can see that the failure occurred in the \`CallChildActivity()\` method (line 22), called by the \`Main()\` method (line 11), both in the \`Program.cs\` class. Runtime message tracking is essential for software health and reliability—such rich information greatly improves troubleshooting productivity. While stack traces work well for single-process applications like monolithic systems, they're insufficient for distributed systems like microservice architectures. This is why distributed tracing tools and standards became necessary. The W3C defines a standard for this called \`Trace Context\`.
+  From this information, we can see that the failure occurred in the \`CallChildActivity()\` method (line 22), called by the \`Main()\` method (line 11), both in the \`Program.cs\` class. Runtime message tracking is essential for software health and reliability, such rich information greatly improves troubleshooting productivity. While stack traces work well for single-process applications like monolithic systems, they're insufficient for distributed systems like microservice architectures. This is why distributed tracing tools and standards became necessary. The W3C defines a standard for this called \`Trace Context\`.
   
   ## W3C Trace Context purpose
   
@@ -745,7 +745,7 @@ var dict = {
   
   ![amqp-message-format](https://raw.githubusercontent.com/luizhlelis/trace-context-w3c/main/doc/amqp-message-format.webp)
   
-  This field placement exists because \`application-properties\` is defined by the message publisher and is immutable—brokers cannot modify it. In contrast, \`message-annotations\` is designed for broker usage and can be modified during message processing. If middleware needs to annotate messages as they flow, it must use the \`message-annotations\` section, based on the fields from \`application-properties\`.
+  This field placement exists because \`application-properties\` is defined by the message publisher and is immutable, brokers cannot modify it. In contrast, \`message-annotations\` is designed for broker usage and can be modified during message processing. If middleware needs to annotate messages as they flow, it must use the \`message-annotations\` section, based on the fields from \`application-properties\`.
   
   ## Conclusion
   
